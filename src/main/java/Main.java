@@ -6,10 +6,10 @@ import main.java.lists.interfaces.IList;
 
 public class Main {
     public static void main(String[] args) {
-        AbstractFactory factory = ProducerFactory.createFactory("LISTS");
+        //AbstractFactory factory = ProducerFactory.createFactory("LISTS");
 
-        IList linked = factory.createList("SIMPLE");
-        linked.pruebaFuncionamiento();
-
+        //IList linked = factory.createList("SIMPLE");
+        //linked.pruebaFuncionamiento();
+        window v1 = new window();
     }
 }
