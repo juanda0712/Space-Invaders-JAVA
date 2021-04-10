@@ -1,4 +1,4 @@
-package main.java.lists.interfaces.implementations.list;
+package main.java.lists.implementations.list;
 
 import main.java.lists.interfaces.IList;
 import main.java.lists.nodes.OneWayNode;

@@ -1,4 +1,4 @@
-package main.java.lists.interfaces.implementations.list.nodes;
+package main.java.lists.nodes;
 
 public class OneWayNode {
     public Object data;
