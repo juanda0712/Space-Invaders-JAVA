@@ -17,6 +17,7 @@ public class window implements ActionListener{
 
     public window(){
 
+        frame = new JFrame("Space Invaders"); // le da el nombre a la ventana
         startButton = new JButton("Start");
         instructionsButton = new JButton("Instructions");
         exitButton = new JButton("Exit");
@@ -41,7 +42,6 @@ public class window implements ActionListener{
 
         tittle.setBounds(410, 100, 200, 50);
 
-        frame = new JFrame("Space Invaders"); // le da el nombre a la ventana
         frame.setSize(1020, 720);//le da tamaño a la ventana
         frame.setLayout(null);
         frame.setLocationRelativeTo(null);//la ventana aparece en el centro
