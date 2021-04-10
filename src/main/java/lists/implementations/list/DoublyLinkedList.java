@@ -1,7 +1,7 @@
 package main.java.lists.interfaces.implementations.list;
 
 import main.java.lists.interfaces.IList;
-import main.java.lists.interfaces.implementations.list.nodes.TwoWaysNode;
+import main.java.lists.nodes.TwoWaysNode;
 
 public class DoublyLinkedList implements IList {
     @Override
