@@ -1,15 +1,13 @@
 package main.java;
-
-import main.java.lists.ProducerFactory;
-import main.java.lists.interfaces.AbstractFactory;
-import main.java.lists.interfaces.IList;
+import main.java.rows.factories.RowsFactory;
+import main.java.rows.interfaces.IRow;
 
 public class Main {
     public static void main(String[] args) {
-        //AbstractFactory factory = ProducerFactory.createFactory("LISTS");
+        //window v1 = new window();
 
-        //IList linked = factory.createList("SIMPLE");
-        //linked.pruebaFuncionamiento();
-        window v1 = new window();
+        RowsFactory factory = new RowsFactory();
+        IRow lista = factory.createaRow("E");
+        lista.creaLista();
     }
 }
