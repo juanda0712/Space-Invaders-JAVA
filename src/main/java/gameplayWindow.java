@@ -7,6 +7,7 @@ public class gameplayWindow  {
     private JFrame frame;
     private ImageIcon backIcon;
     private JLabel myLabel;
+    private ImageIcon ship;
 
     public gameplayWindow(){
         frame = new JFrame("Space Invaders"); // le da el nombre a la ventana
