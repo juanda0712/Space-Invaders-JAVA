@@ -6,9 +6,20 @@ import main.java.lists.nodes.OneWayNode;
 public class LinkedList implements IList {
     @Override
     public void pruebaFuncionamiento(){
-        this.append("Arroba");
+        this.append(15);
+        this.append(15);
+        this.append(5);
+        this.append(8);
         System.out.println(this.ShowDataInPos(0));
+        System.out.println(getLarge());
         System.out.println("La lista simple funciona");
+        System.out.println(ShowDataInPos(2));
+        this.Delete(2);
+        System.out.println(ShowDataInPos(2));
+        System.out.println(this.getLarge());
+        this.DeleteAll();
+        System.out.println(getLarge());
+        System.out.println(ShowDataInPos(9));
     }
     int large;
     int actualpos;
@@ -27,7 +38,7 @@ public class LinkedList implements IList {
         } else {
             var smp = this.tail;
             smp.next = new OneWayNode(data);
-            this.tail=smp;
+            this.tail=smp.next;
         }
     }
 
@@ -36,8 +47,6 @@ public class LinkedList implements IList {
     }
 
     public Object ShowDataInPos(int x) {
-        // El while esta acomodado de manera que aunque exceda el largo de la lista trate de continuar
-        //con el fin de que realize el throw
         var smp = this.head;
         if (x<0){
             throw new IllegalArgumentException("No existen las posiciones negativas");
@@ -48,17 +57,45 @@ public class LinkedList implements IList {
         if (x==this.large){
             return this.tail;
         }
-        while (this.actualpos < x) {
+        while (this.actualpos < x & this.actualpos<this.large) {
             if (this.actualpos <= this.large) {
                 if (smp.next != null) {
                     smp = smp.next;
                     this.actualpos += 1;
                 }
-                else {
-                    throw new IllegalArgumentException("Posicion no existente en la lista");
-                }
             }
         }
         return smp.getData();
+    }
+
+    public void DeleteAll(){
+        var smp=this.head;
+        var smp2=smp;
+        while (this.tail!=null){
+            if(smp==this.tail){
+                smp.next=null;
+                smp.setNull();
+                this.large-=1;
+                break;
+            }
+            smp2=smp.next;
+            smp.next=null;
+            smp.setNull();
+            smp=smp2;
+            this.large-=1;
+        }
+    }
+    //Esta funcion elimina a un enemigo en una posicion especifica;
+    public void Delete (int pos){
+        var smp=this.head;
+        while(actualpos!=pos){
+            if (actualpos+1==pos){
+                smp.next=smp.next.next;
+                this.large-=1;
+                break;
+            }
+            smp=smp.next;
+            actualpos+=1;
+        }
     }
 }

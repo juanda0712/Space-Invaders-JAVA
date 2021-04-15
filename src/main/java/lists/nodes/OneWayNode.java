@@ -12,4 +12,8 @@ public class OneWayNode {
     public Object getData () {
         return this.data;
     }
+
+    public void setNull(){
+        this.data=null;
+    }
 }

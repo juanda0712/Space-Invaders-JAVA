@@ -7,7 +7,7 @@ public class Main {
         //instructionsWindow v1 = new instructionsWindow();
         mainWindow v1 = new mainWindow();
         RowsFactory factory = new RowsFactory();
-        IRow lista = factory.createaRow("E");
+        IRow lista = factory.createaRow("c");
         lista.creaLista();
 
     }
