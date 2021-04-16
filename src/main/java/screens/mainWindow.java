@@ -1,4 +1,7 @@
-package main.java;
+package main.java.screens;
+
+import main.java.screens.gameplayWindow;
+import main.java.screens.instructionsWindow;
 
 import javax.swing.*;
 import java.awt.*;
