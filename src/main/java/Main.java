@@ -9,7 +9,7 @@ public class Main {
         mainWindow v1 = new mainWindow();
         //mainGameplayWindow g1 = new mainGameplayWindow();
         RowsFactory factory = new RowsFactory();
-        IRow lista = factory.createaRow("c");
+        IRow lista = factory.createaRow("basic");
         lista.creaLista();
 
 
