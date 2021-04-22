@@ -22,7 +22,7 @@ public class instructionsWindow implements ActionListener {
     public instructionsWindow(){
 
         frame = new JFrame("Space Invaders"); // le da el nombre a la ventana
-        backIcon = new ImageIcon(this.getClass().getResource("\\Media\\Background.png"));
+        backIcon = new ImageIcon(this.getClass().getResource("Media\\Background.png"));
         myLabel = new JLabel(backIcon);
         back = new JButton("Back");
         tittle = new JLabel("Instructions");
@@ -30,10 +30,10 @@ public class instructionsWindow implements ActionListener {
         text2 = new JLabel("Don't get touched or Game Over!");
         text3 = new JLabel("Be careful with the bosses");
 
-        ship = new ImageIcon(Toolkit.getDefaultToolkit().getImage(getClass().getResource("\\Media\\Player.png")));
+        ship = new ImageIcon(Toolkit.getDefaultToolkit().getImage(getClass().getResource("media\\Player.png")));
         label2 = new JLabel(backIcon);
         label3 = new JLabel(backIcon);
-        minion = new ImageIcon(Toolkit.getDefaultToolkit().getImage(getClass().getResource("\\Media\\Minion.png")));
+        minion = new ImageIcon(Toolkit.getDefaultToolkit().getImage(getClass().getResource("Media\\Minion.png")));
 
         tittle.setForeground(Color.GREEN);
         tittle.setFont(new Font("Arial", 3, 30));
@@ -74,7 +74,7 @@ public class instructionsWindow implements ActionListener {
         frame.add(myLabel);
         frame.add(label2);
         frame.add(label3);
-        frame.setIconImage(Toolkit.getDefaultToolkit().getImage(getClass().getResource("\\Media\\Player.png")));
+        frame.setIconImage(Toolkit.getDefaultToolkit().getImage(getClass().getResource("Media\\Player.png")));
 
     }
 

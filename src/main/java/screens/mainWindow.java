@@ -1,8 +1,5 @@
 package main.java.screens;
 
-import main.java.screens.gameplayWindow;
-import main.java.screens.instructionsWindow;
-
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
@@ -24,7 +21,7 @@ public class mainWindow {
         startButton = new JButton("Start");
         instructionsButton = new JButton("Instructions");
         exitButton = new JButton("Exit");
-        backIcon = new ImageIcon(this.getClass().getResource("\\Media\\Background.png"));
+        backIcon = new ImageIcon(this.getClass().getResource("Media\\Background.png"));
         myLabel =new JLabel(backIcon);
         tittle = new JLabel("Space Invaders");
 
@@ -50,14 +47,14 @@ public class mainWindow {
         frame.setVisible(true);//que la ventana se vea
         frame.setDefaultCloseOperation(frame.EXIT_ON_CLOSE);
         frame.add(myLabel);
-        frame.setIconImage(Toolkit.getDefaultToolkit().getImage(getClass().getResource("\\Media\\Player.png")));
+        frame.setIconImage(Toolkit.getDefaultToolkit().getImage(getClass().getResource("Media\\Player.png")));
 
         ActionListener buttonListener = new ActionListener(){
             @Override
             public void actionPerformed(ActionEvent ae){
                 Object o = ae.getSource();
                 if (o == startButton){
-                    gameplayWindow g1 = new gameplayWindow();
+                    mainGameplayWindow g1 = new mainGameplayWindow();
                     frame.dispose();
                 }else if(o == instructionsButton){
                     frame.dispose();

@@ -2,31 +2,70 @@ package main.java.screens;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
-public class gameplayWindow  {
-    private JFrame frame;
-    private ImageIcon backIcon;
-    private JLabel myLabel;
-    private ImageIcon ship;
+public class gameplayWindow extends JPanel implements ActionListener{
 
-    public gameplayWindow(){
-        frame = new JFrame("Space Invaders"); // le da el nombre a la ventana
-        backIcon = new ImageIcon(this.getClass().getResource("\\Media\\Background.png"));
-        myLabel = new JLabel(backIcon);
+    final int PANEL_WIDTH = 1020;
+    final int PANEL_HEIGHT = 720;
+    Image minion1;
+    Image minion2;
+    Image minion3;
+    Image minion4;
+    Image minion5;
+    Image ship;
+    Image background;
+    Timer timer;
+    int SpeedX;
+    double SpeedY = 10;
+    int x = 290;
+    double y = 30;
+    int buff = 0;
+    int base = 250;
 
-        myLabel.setSize(1020, 720);//
+    gameplayWindow(){
+        this.setPreferredSize(new Dimension(PANEL_WIDTH, PANEL_HEIGHT));
+        this.setBackground(Color.BLACK);
+        background = new ImageIcon("Background.png").getImage();
+        minion1 = new ImageIcon("Minion.png").getImage();
+        minion2 = new ImageIcon("Minion.png").getImage();
+        minion3 = new ImageIcon("Minion.png").getImage();
+        minion4 = new ImageIcon("Minion.png").getImage();
+        minion5 = new ImageIcon("Minion.png").getImage();
+        ship = new ImageIcon("Player.png").getImage();
+        timer = new Timer(base - buff, this);
+        timer.start();
+    }
+    public void paint(Graphics g){
 
-        frame.setSize(1020, 720);//le da tamaño a la ventana
-        frame.setLayout(null);
-        frame.setLocationRelativeTo(null);//la ventana aparece en el centro
-        frame.setResizable(false);//no cambie de tamaño la ventana
-        frame.setVisible(true);//que la ventana se vea
-        frame.setDefaultCloseOperation(frame.EXIT_ON_CLOSE);
-        frame.add(myLabel);
-        frame.setIconImage(Toolkit.getDefaultToolkit().getImage(getClass().getResource("\\Media\\Player.png")));
+        super.paint(g);
 
+        Graphics2D g2D = (Graphics2D) g;
+
+        g2D.drawImage(background, 0, 0, null);
+
+        g2D.drawImage(minion1, x, (int)y, null);
+        g2D.drawImage(minion2, x + 90, (int)y, null);
+        g2D.drawImage(minion3, x + 180, (int)y, null);
+        g2D.drawImage(minion4, x + 270, (int)y, null);
+        g2D.drawImage(minion5, x + 360, (int)y, null);
+        g2D.drawImage(ship, 470, 550, null);
 
     }
 
-}
+    @Override
+    public void actionPerformed(ActionEvent e) {
+        if (y > 490) {
+            JOptionPane.showMessageDialog(null, "GAME OVER!");
+            y = 490;
+            SpeedY = 0;
+            mainWindow v1 = new mainWindow();
 
+        }
+            y = y + SpeedY;
+            repaint();
+
+
+    }
+}
