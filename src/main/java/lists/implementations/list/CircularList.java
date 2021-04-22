@@ -33,8 +33,11 @@ public class CircularList implements IList {
         System.out.println("---");
         System.out.println(this.getLarge());
         System.out.println("La lista circular funciona");
-        this.Delete(1);
-        System.out.println(this.ShowDataInPos(1));
+        this.Delete(6);
+        for (i=0;i<this.large;i++) {
+            System.out.println(this.ShowDataInPos(i));
+        }
+        System.out.println("--");
         System.out.println(this.getLarge());
 
 
@@ -99,6 +102,12 @@ public class CircularList implements IList {
                         temp.next=next.next;
                         next.next=temp;
                     }
+                    else if (next==this.tail){
+                        prev.next=next;
+                        this.tail=temp;
+                        temp.next=next.next;
+                        next.next=temp;
+                    }
                     else {
                         prev.next = next;
                         temp.next = next.next;
@@ -114,21 +123,26 @@ public class CircularList implements IList {
 
     //Esta funcion elimina a un enemigo en una posicion especifica;
     //Esta funcion elimina a un enemigo en una posicion especifica;
-    public void Delete (int pos){
-        if (pos==0){
-            this.tail.next=this.head.next;
-            this.head=this.head.next;
-            this.large-=1;
+    public void Delete (int pos) {
+        actualpos = 0;
+        if (pos == 0) {
+            this.tail.next = this.head.next;
+            this.head = this.head.next;
+            this.large -= 1;
         }
-        var smp=this.head;
-        while(actualpos<=pos){
-            if (actualpos==pos){
-
-                smp.next=smp.next.next;
-                this.large-=1;
+        else {
+            var smp = this.head;
+            while (actualpos <= pos) {
+                if (actualpos+1 == pos) {
+                    if (smp.next==this.tail){
+                        this.tail=smp;
+                    }
+                    smp.next = smp.next.next;
+                    this.large -= 1;
+                }
+                smp = smp.next;
+                actualpos += 1;
             }
-            smp=smp.next;
-            actualpos+=1;
         }
     }
 }

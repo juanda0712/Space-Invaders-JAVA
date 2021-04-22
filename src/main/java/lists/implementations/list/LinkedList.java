@@ -14,12 +14,13 @@ public class LinkedList implements IList {
         System.out.println(getLarge());
         System.out.println("La lista simple funciona");
         System.out.println(ShowDataInPos(1));
-        this.Delete(0);
+        this.Delete(3);
+        System.out.println("--Delete--");;
         System.out.println(ShowDataInPos(1));
         System.out.println(this.getLarge());
         this.DeleteAll();
         System.out.println(getLarge());
-        System.out.println(ShowDataInPos(9));
+        System.out.println(ShowDataInPos(0));
     }
     int large;
     int actualpos=0;
@@ -72,10 +73,9 @@ public class LinkedList implements IList {
     public void DeleteAll(){
         var smp=this.head;
         var smp2=smp;
-        while (this.tail!=null){
+        while (smp.next!=null){
             if(smp==this.tail){
                 smp.next=null;
-                smp.setNull();
                 this.large-=1;
                 break;
             }
@@ -85,6 +85,7 @@ public class LinkedList implements IList {
             smp=smp2;
             this.large-=1;
         }
+        this.large--;
     }
     //Esta funcion elimina a un enemigo en una posicion especifica;
     public void Delete (int pos){
@@ -95,6 +96,9 @@ public class LinkedList implements IList {
         var smp=this.head;
         while(actualpos<=pos){
             if (actualpos==pos){
+                if (smp==this.tail){
+                    smp.setNull();
+                }
                 smp.next=smp.next.next;
                 this.large-=1;
             }
