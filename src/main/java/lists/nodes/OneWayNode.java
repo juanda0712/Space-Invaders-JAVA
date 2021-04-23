@@ -4,7 +4,7 @@ import main.java.invaders.interfaces.Invader;
 
 /**
  * Clase que genera nodos
- * 
+ *
  */
 public class OneWayNode {
     public Invader data;

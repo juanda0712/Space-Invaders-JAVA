@@ -9,7 +9,7 @@ public class Boss implements Invader {
     private int posX;
     private int posY;
     private double life = ((Math.random() * 4) + 2);
-    private Image img = new ImageIcon("Minion.png").getImage();
+    private Image img = new ImageIcon("Boss.png").getImage();
     private String name = "boss";
 
     @Override
