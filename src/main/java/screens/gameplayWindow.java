@@ -1,5 +1,9 @@
 package main.java.screens;
 
+import main.java.lists.interfaces.IList;
+import main.java.rows.factories.RowsFactory;
+import main.java.rows.interfaces.IRow;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
@@ -20,19 +24,18 @@ public class gameplayWindow extends JPanel implements ActionListener, MouseListe
     Image background;
     Timer timer;
     int SpeedX;
-    double SpeedY = 10;
-    int x = 290;
+    double SpeedY = 2;
+    int x = 200;
     double y = 30;
     double buff = 0.90;
     double normal = 500;
     private JFrame frame;
     int base = 60;
     int n = 7;
-
+    boolean a=false;
+    IRow row;
 
     RowsFactory factory = new RowsFactory();
-    IRow row = factory.createaRow("basic");
-    IList lista = row.crear();
 
     gameplayWindow(JFrame frame){
         this.setPreferredSize(new Dimension(PANEL_WIDTH, PANEL_HEIGHT));
@@ -44,46 +47,52 @@ public class gameplayWindow extends JPanel implements ActionListener, MouseListe
         minion4 = new ImageIcon("Minion.png").getImage();
         minion5 = new ImageIcon("Minion.png").getImage();
         ship = new ImageIcon("Player.png").getImage();
-        timer = new Timer((int)normal, this);
+        timer = new Timer(60, this);
         timer.start();
         this.frame = frame;
         addMouseListener(this);
 
-        imagenes = lista.ShowDataInPos(0).getImg();
 
 
     }
-    public void paint(Graphics g){
 
+    public IRow creador(){
+        if(a==false){
+            row = factory.createaRow("basic");
+            a=true;
+        }
+         return row;
+    }
+
+    public void paint(Graphics g) {
         super.paint(g);
 
+        var rowi = creador();
+        IList lista = rowi.crear();
         Graphics2D g2D = (Graphics2D) g;
 
         g2D.drawImage(background, 0, 0, null);
 
-        g2D.drawImage(minion1, x, (int)y, null);
-        g2D.drawImage(minion2, x + 90, (int)y, null);
-        g2D.drawImage(minion3, x + 180, (int)y, null);
-        g2D.drawImage(minion4, x + 270, (int)y, null);
-        g2D.drawImage(minion5, x + 360, (int)y, null);
-        g2D.drawImage(ship, 470, 550, null);
-
         var j = x;
 
-        int ramdom = (int) ((Math.random() * 4) + 2);
-
-
-        for (int i = 0; i < lista.getLarge() ; i++) {
-            while (j < 1020){
-                g2D.drawImage(lista.ShowDataInPos(i).getImg(), j, (int)y, null);
+        for (int i = 0; i < lista.getLarge(); i++) {
+            while (j < 1020) {
+                g2D.drawImage(lista.ShowDataInPos(i).getImg(), j, (int) y, null);
                 break;
             }
-            j+=90;
+            j += 90;
         }
-        j=0;
+        j = 0;
 
         int mouseX = (int) MouseInfo.getPointerInfo().getLocation().getX();
+        System.out.println(mouseX);
+        if (mouseX > 1372) {
+            mouseX = 1372;
+        } else if (mouseX < 453) {
+            mouseX = 453;
+        }
         g2D.drawImage(ship, mouseX - 445, 550, null);
+
     }
 
     @Override
