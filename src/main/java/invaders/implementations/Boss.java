@@ -1,10 +1,17 @@
 package main.java.invaders.implementations;
 
 import main.java.invaders.interfaces.Invader;
-
 import javax.swing.*;
 import java.awt.*;
 
+
+/**
+ * Create a Boss-type Invader
+ *
+ *@author Juan Rodriguez
+ *@since 1.0
+
+ */
 public class Boss implements Invader {
     private int posX;
     private int posY;
@@ -12,44 +19,30 @@ public class Boss implements Invader {
     private Image img = new ImageIcon("Boss.png").getImage();
     private String name = "boss";
 
-    @Override
-    public int getPosX(){
-        return this.posX;
-    }
-    @Override
-    public int getPosY(){
-        return this.posY;
-    }
-    @Override
-    public void setPosX(int num){
-        if (num == 0){
-            this.posX -= 1;
-        }else{
-            this.posX += 1;
-        }
-    }
-    @Override
-    public void setPosY(){
-        this.posY += 1 ;
-    }
+    /**
+     * method that returns the image to the invader
+     */
     @Override
     public Image getImg(){
         return this.img;
     }
+    /**
+     * method that returns the life to the invader
+     */
     @Override
     public int getLife(){
         return (int)this.life;
     }
+    /**
+     * method that aplly the damage to the invader
+     */
     @Override
     public void applyDamage(){
         this.life -= 1;
     }
-
-    @Override
-    public void prueba(){
-        System.out.println("El invader esta dentro de la lista");
-    }
-
+    /**
+     * method that returns the name to the invader (boss)
+     */
     @Override
     public String getName(){return this.name;}
 }
