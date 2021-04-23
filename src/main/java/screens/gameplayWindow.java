@@ -46,6 +46,7 @@ public class gameplayWindow extends JPanel implements ActionListener{
 
         IRow row = factory.createaRow("basic");
         IList lista = row.crear();
+        System.out.println(lista.ShowDataInPos(0));
 
     }
     public void paint(Graphics g){

@@ -1,4 +1,5 @@
 package main.java;
+import main.java.lists.interfaces.IList;
 import main.java.rows.factories.RowsFactory;
 import main.java.rows.interfaces.IRow;
 import main.java.screens.mainGameplayWindow;
@@ -12,8 +13,9 @@ public class Main {
 
 
         RowsFactory factory = new RowsFactory();
-        IRow row = factory.createaRow("b");
-        row.crear();
+        IRow row = factory.createaRow("basic");
+        IList lista = row.crear();
+        System.out.println(lista.ShowDataInPos(0));
 
 
     }

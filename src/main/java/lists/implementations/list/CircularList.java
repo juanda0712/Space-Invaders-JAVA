@@ -11,7 +11,6 @@ public class CircularList implements IList {
     public void pruebaFuncionamiento(){
 
         }
-        
 
     int large=0;
     int actualpos;
