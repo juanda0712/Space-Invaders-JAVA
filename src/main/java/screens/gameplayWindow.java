@@ -21,12 +21,14 @@ public class gameplayWindow extends JPanel implements ActionListener, MouseListe
     Image minion4;
     Image minion5;
     Image ship;
+    Image yuca;
     Image background;
     Timer timer;
     int SpeedX = 8;
     double SpeedY = 1.5;
     int x = 200;
     double y = 30;
+    double y2 = 550;
     double buff = 0.90;
     double normal = 500;
     private JFrame frame;
@@ -34,6 +36,9 @@ public class gameplayWindow extends JPanel implements ActionListener, MouseListe
     int n = 7;
     boolean a=false;
     IRow row;
+    int mouseX;
+    boolean shoot = false;
+    private int cont = 0;
 
     RowsFactory factory = new RowsFactory();
 
@@ -47,6 +52,7 @@ public class gameplayWindow extends JPanel implements ActionListener, MouseListe
         this.setBackground(Color.BLACK);// se define el color del fondo
         background = new ImageIcon("Background.png").getImage(); // se pone de fondo una imagen
         ship = new ImageIcon("Player.png").getImage();
+        yuca = new ImageIcon("Yuca.png").getImage();
         timer = new Timer(60, this); // los fps del programa
         timer.start();
         this.frame = frame;
@@ -91,7 +97,9 @@ public class gameplayWindow extends JPanel implements ActionListener, MouseListe
         } else if (mouseX < 453) {
             mouseX = 453;
         }
+        //g2D.drawImage(yuca, mouseX - 423, (int)y2, null);
         g2D.drawImage(ship, mouseX - 445, 550, null); // dibuja al jugador
+
 
     }
 
@@ -111,11 +119,11 @@ public class gameplayWindow extends JPanel implements ActionListener, MouseListe
             x = x + SpeedX;// le da el movimiento diagonal a los minions
             y = y + SpeedY;//
             repaint(); // re inserta a los minions dando la persepcion de movimiento
+
     }
 
     @Override
     public void mouseClicked(MouseEvent e) {
-        JOptionPane.showMessageDialog(null, "Troleado"); // al dar click hace una accion
     }
 
     @Override
@@ -138,3 +146,4 @@ public class gameplayWindow extends JPanel implements ActionListener, MouseListe
 
     }
 }
+
