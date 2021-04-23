@@ -7,7 +7,8 @@ import main.java.lists.nodes.OneWayNode;
 import java.util.Random;
 
 /**
- * Clase que genera listas circulares
+ * @author Jordy
+ * Class that generates a Cirular List
  *
  */
 public class CircularList implements IList {
@@ -20,6 +21,10 @@ public class CircularList implements IList {
         new OneWayNode(null);
     }
 
+    /**
+     * Set an Invader as the data of a node and add it to a list
+     * @param data is the object to be added
+     */
     @Override
     public void append(Invader data) {
         this.large += 1;
@@ -38,11 +43,20 @@ public class CircularList implements IList {
         }
     }
 
+    /**
+     * Show the large of the list
+     * @return an int with the large of the list
+     */
     @Override
     public int getLarge() {
         return this.large;
     }
 
+    /**
+     * Show the data in an especific node
+     * @param x is the position in the list
+     * @return the data of the node in position x
+     */
     @Override
     public Invader ShowDataInPos(int x) {
         actualpos=0;
@@ -59,6 +73,10 @@ public class CircularList implements IList {
             }
         return (Invader) smp.getData();
     }
+
+    /**
+     * Sort the list in a way
+     */
     @Override
     public void BubbleSort(){
         for (int i = 0; i < this.large-1; i++ ) {

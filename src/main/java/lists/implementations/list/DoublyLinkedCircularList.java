@@ -14,6 +14,10 @@ public class DoublyLinkedCircularList implements IList {
         new TwoWaysNode(null);
     }
 
+    /**
+     * Set an Invader as the data of a node and add it to a list
+     * @param data is the object to be added
+     */
     public void append(Invader data) {
         this.large += 1;
         if (this.head == null) {
@@ -35,6 +39,9 @@ public class DoublyLinkedCircularList implements IList {
 
     }
 
+    /**
+     * return the large of the list
+     */
     public int getLarge() {
         return this.large;
     }

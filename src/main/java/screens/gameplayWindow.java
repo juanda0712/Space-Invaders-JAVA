@@ -3,6 +3,7 @@ package main.java.screens;
 import main.java.lists.interfaces.IList;
 import main.java.rows.factories.RowsFactory;
 import main.java.rows.interfaces.IRow;
+import main.java.spacecraft.PlasmaBeam;
 
 import javax.swing.*;
 import java.awt.*;
@@ -23,7 +24,7 @@ public class gameplayWindow extends JPanel implements ActionListener, MouseListe
     double SpeedY = 1.5;
     int x = 200;
     double y = 30;
-    double y2 = 550;
+    double y2 = 600;
     double buff = 0.90;
     double normal = 500;
     private JFrame frame;
@@ -34,6 +35,8 @@ public class gameplayWindow extends JPanel implements ActionListener, MouseListe
     int mouseX;
     boolean shoot = false;
     private int cont = 0;
+    int posx;
+    PlasmaBeam plasma;
 
 
     IList lista;
@@ -74,9 +77,7 @@ public class gameplayWindow extends JPanel implements ActionListener, MouseListe
         return lista;
     }
 
-    void shootAction(Graphics2D g2D){
-        g2D.drawImage(yuca, mouseX - 423, (int)y2, null);
-    }
+
 
     public void paint(Graphics g) {
 
@@ -116,17 +117,19 @@ public class gameplayWindow extends JPanel implements ActionListener, MouseListe
 
 
 
-
         int mouseX = (int) MouseInfo.getPointerInfo().getLocation().getX();
         if (mouseX > 1372) {
             mouseX = 1372;
         } else if (mouseX < 453) {
             mouseX = 453;
         }
-        //g2D.drawImage(yuca, mouseX - 423, (int)y2, null);
         g2D.drawImage(ship, mouseX - 445, 550, null); // dibuja al jugador
-        if(shoot == true){
-            this.shootAction(g2D);
+        while (shoot == true){
+            var i=0;
+            while (i!=100){
+            g2D.drawImage(plasma.getImg(), plasma.getPosX() , (int)y2, null);
+
+            }
         }
 
     }
@@ -146,14 +149,18 @@ public class gameplayWindow extends JPanel implements ActionListener, MouseListe
         }
             x = x + SpeedX;// le da el movimiento diagonal a los minions
             y = y + SpeedY;//
+            y2=y2-2;
             repaint(); // re inserta a los minions dando la persepcion de movimiento
 
     }
 
     @Override
     public void mouseClicked(MouseEvent e) {
-        shoot = true;
+
         JOptionPane.showMessageDialog(null, "Troleado");
+        plasma = new PlasmaBeam(mouseX-423,(int) y2);
+        shoot = true;
+        shoot=true;
         lista.ShowDataInPos(0).applyDamage();
         for (int i = 0; i < lista.getLarge(); i++) {
             if (lista.ShowDataInPos(i).getLife() == 0) {

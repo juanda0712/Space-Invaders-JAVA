@@ -10,10 +10,15 @@ public class DoublyLinkedList implements IList {
     TwoWaysNode head=null;
     TwoWaysNode tail=null;
 
+
     public DoublyLinkedList() {
         new TwoWaysNode(null);
     }
 
+    /**
+     * Set an Invader as the data of a node and add it to a list
+     * @param data is the object to be added
+     */
     public void append(Invader data) {
         this.large += 1;
         if (this.head == null) {

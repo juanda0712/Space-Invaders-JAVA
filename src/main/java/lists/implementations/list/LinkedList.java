@@ -15,6 +15,10 @@ public class LinkedList implements IList {
         new OneWayNode(null);
     }
 
+    /**
+     * Set an Invader as the data of a node and add it to a list
+     * @param data is the object to be added
+     */
     @Override
     public void append(Invader data) {
         this.large += 1;
@@ -36,13 +40,13 @@ public class LinkedList implements IList {
     public Invader ShowDataInPos(int x) {
         actualpos = 0;
         var smp = this.head;
-        if (x < 0) {
+        if (smp == null) {
+
+        } else if (x < 0) {
             throw new IllegalArgumentException("No existen las posiciones negativas");
-        }
-        if (x == 0) {
+        } else if (x == 0) {
             return (Invader) smp.getData();
-        }
-        if (x == this.large) {
+        } else if (x == this.large) {
             return (Invader) this.tail;
         }
         while (this.actualpos < x & this.actualpos < this.large) {
@@ -53,7 +57,11 @@ public class LinkedList implements IList {
                 }
             }
         }
-        return (Invader) smp.getData();
+        if (smp != null) {
+            return (Invader) smp.getData();
+        } else {
+            return null;
+        }
     }
 
     public void DeleteAll() {

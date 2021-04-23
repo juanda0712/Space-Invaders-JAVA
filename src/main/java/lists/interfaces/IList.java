@@ -39,7 +39,9 @@ public interface IList {
     void Delete (int pos);
 
     /**
-     * rearrange the list
+     * Sort the nodes on the list so
+     * it goes from the smallest to
+     * the bigger number found
      */
     void BubbleSort();
 
