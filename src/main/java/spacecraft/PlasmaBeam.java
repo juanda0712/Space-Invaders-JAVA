@@ -9,7 +9,7 @@ public class PlasmaBeam {
     private Image img = new ImageIcon("Yuca.png").getImage();
     private boolean alive;
 
-    PlasmaBeam(int posX,int posY){
+    public PlasmaBeam(int posX,int posY){
         this.posX = posX;
         this.posY = posY;
     }
@@ -25,11 +25,11 @@ public class PlasmaBeam {
     public Image getImg(){
         return this.img;
     }
-    public void setPosX(int posX){
+    public void setPosX(){
         this.posX = posX;
     }
-    public void setPosY(int posY){
-        this.posY = posY;
+    public void setPosY(){
+        this.posY -=14;
     }
     public void setState(boolean state){
         this.alive = state;

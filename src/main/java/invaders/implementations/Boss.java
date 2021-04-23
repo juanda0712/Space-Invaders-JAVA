@@ -15,7 +15,7 @@ import java.awt.*;
 public class Boss implements Invader {
     private int posX;
     private int posY;
-    private double life = ((Math.random() * 4) + 2);
+    private double life = (Math.random()*5+2);
     private Image img = new ImageIcon("Boss.png").getImage();
     private String name = "boss";
 

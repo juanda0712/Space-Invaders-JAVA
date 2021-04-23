@@ -11,6 +11,8 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
+import java.util.ArrayList;
+import java.util.List;
 
 public class gameplayWindow extends JPanel implements ActionListener, MouseListener {
 
@@ -33,21 +35,15 @@ public class gameplayWindow extends JPanel implements ActionListener, MouseListe
     boolean a=false;
     IRow row;
     int mouseX;
-    boolean shoot = false;
     private int cont = 0;
     int posx;
     PlasmaBeam plasma;
-
-
     IList lista;
     boolean kill=false;
-
-
     RowsFactory factory = new RowsFactory();
-
     Image imagenes;
-
-
+    PlasmaBeam disparo = new PlasmaBeam(400,400);
+    List<PlasmaBeam> listaDisparos = new ArrayList<PlasmaBeam>();
 
 
     gameplayWindow(JFrame frame){
@@ -65,12 +61,23 @@ public class gameplayWindow extends JPanel implements ActionListener, MouseListe
 
     }
 
-    public void creador(){
+    public void creador(int rowGenerador){
         if(a==false){
-            row = factory.createaRow("basic");
-            a=true;
-            lista= creal(row);
+            if(rowGenerador==1){
+                row = factory.createaRow("basic");
+                a=true;
+                lista= creal(row);
+            }else if(rowGenerador==2){
+                row = factory.createaRow("d");
+                a=true;
+                lista= creal(row);
+            }else{
+                row = factory.createaRow("a");
+                a=true;
+                lista= creal(row);
+            }
         }
+
     }
     public IList creal(IRow row){
         lista= row.crear();
@@ -78,11 +85,10 @@ public class gameplayWindow extends JPanel implements ActionListener, MouseListe
     }
 
 
-
     public void paint(Graphics g) {
 
         super.paint(g);
-        creador();
+        creador((int)(Math.random()*3+1));
         if(lista.getLarge()==0){
             a=false;
             SpeedY+=0.25;
@@ -117,21 +123,24 @@ public class gameplayWindow extends JPanel implements ActionListener, MouseListe
 
 
 
-        int mouseX = (int) MouseInfo.getPointerInfo().getLocation().getX();
+
+        mouseX = (int) MouseInfo.getPointerInfo().getLocation().getX();
+
+        mouseX = (int) MouseInfo.getPointerInfo().getLocation().getX();
+
         if (mouseX > 1372) {
             mouseX = 1372;
         } else if (mouseX < 453) {
             mouseX = 453;
         }
         g2D.drawImage(ship, mouseX - 445, 550, null); // dibuja al jugador
-        while (shoot == true){
-            var i=0;
-            while (i!=100){
-            g2D.drawImage(plasma.getImg(), plasma.getPosX() , (int)y2, null);
 
+        if (!listaDisparos.isEmpty()){
+            for (int i = 0; i < listaDisparos.size(); i++) {
+                g2D.drawImage(listaDisparos.get(i).getImg(), listaDisparos.get(i).getPosX(), listaDisparos.get(i).getPosY(), null);
+                listaDisparos.get(i).setPosY();
             }
         }
-
     }
 
     @Override
@@ -149,7 +158,10 @@ public class gameplayWindow extends JPanel implements ActionListener, MouseListe
         }
             x = x + SpeedX;// le da el movimiento diagonal a los minions
             y = y + SpeedY;//
+
             y2=y2-2;
+
+            y2+=2;
             repaint(); // re inserta a los minions dando la persepcion de movimiento
 
     }
@@ -157,18 +169,18 @@ public class gameplayWindow extends JPanel implements ActionListener, MouseListe
     @Override
     public void mouseClicked(MouseEvent e) {
 
-        JOptionPane.showMessageDialog(null, "Troleado");
-        plasma = new PlasmaBeam(mouseX-423,(int) y2);
-        shoot = true;
-        shoot=true;
+        listaDisparos.add(new PlasmaBeam(mouseX-445,550));
+
         lista.ShowDataInPos(0).applyDamage();
         for (int i = 0; i < lista.getLarge(); i++) {
             if (lista.ShowDataInPos(i).getLife() == 0) {
                 if (lista.ShowDataInPos(i).getName()=="Boss"){
                     lista.DeleteAll();
+                    cont += 5;
                 }
                 else {
                     lista.Delete(i);
+                    cont += 1;
                 }
             }
         }
