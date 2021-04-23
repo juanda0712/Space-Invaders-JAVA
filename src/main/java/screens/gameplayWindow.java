@@ -62,7 +62,12 @@ public class gameplayWindow extends JPanel implements ActionListener, MouseListe
 
     }
 
-    public void creador(int rowGenerador, Graphics g){
+    /**
+     * @author Jordy
+     * Genera un tipo de row aleatorio
+     * @param rowGenerador
+     */
+    public void creador(int rowGenerador){
         if(a==false){
             if(rowGenerador==1){
                 row = factory.createaRow("basic");
@@ -83,6 +88,12 @@ public class gameplayWindow extends JPanel implements ActionListener, MouseListe
         }
 
     }
+
+    /**
+     * author Jordy
+     * @param row
+     * @return An IList that contains the invaders
+     */
     public IList creal(IRow row){
         lista= row.crear();
         return lista;
@@ -92,7 +103,7 @@ public class gameplayWindow extends JPanel implements ActionListener, MouseListe
     public void paint(Graphics g) {
         int random = (int)(Math.random()*3+1);
         super.paint(g);
-        creador(random,g);
+        creador(random);
         if(lista.getLarge()==0){
             a=false;
             SpeedY+=0.25;
