@@ -10,7 +10,6 @@ public class TypeE implements IRow {
     public void creaLista(){
         DoublyLinkedCircularList lista = new DoublyLinkedCircularList();
         this.addInvaders(7, lista);
-        lista.pruebaFuncionamiento();
     }
     public void addInvaders(int cant, DoublyLinkedCircularList list){
         InvadersFactory factory1 = new InvadersFactory();
@@ -18,11 +17,9 @@ public class TypeE implements IRow {
         while (pos != cant) {
             Invader newInvader;
             if (pos == 4) {
-                newInvader = factory1.createInvader("BOSS");
-                list.append("boss");
+                list.append(factory1.createInvader("BOSS"));
             } else {
-                newInvader = factory1.createInvader("NORMAL");
-                list.append("normal");
+                list.append(factory1.createInvader("NORMAL"));
             }
             pos += 1;
         }

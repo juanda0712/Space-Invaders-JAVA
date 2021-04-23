@@ -27,5 +27,4 @@ public class PlasmaBeam {
     public void setState(boolean state){
         this.alive = state;
     }
-
 }

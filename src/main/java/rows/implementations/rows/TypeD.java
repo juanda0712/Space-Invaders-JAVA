@@ -13,20 +13,16 @@ public class TypeD implements IRow {
         int max = 6;
         int random_int = (int)Math.floor(Math.random()*(max-min+1)+min);
         this.addInvaders(7, lista, random_int);
-        lista.pruebaFuncionamiento();
     }
     public void addInvaders(int cant, CircularList list, int bossPos){
         InvadersFactory factory1 = new InvadersFactory();
         int pos = 0;
         System.out.println(bossPos);
         while (pos != cant) {
-            Invader newInvader;
             if (pos == bossPos) {
-                newInvader = factory1.createInvader("BOSS");
-                list.append("boss");
+                list.append(factory1.createInvader("BOSS"));
             } else {
-                newInvader = factory1.createInvader("NORMAL");
-                list.append("normal");
+                list.append(factory1.createInvader("NORMAL"));
             }
             pos += 1;
         }

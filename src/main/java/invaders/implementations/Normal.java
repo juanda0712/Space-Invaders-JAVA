@@ -20,12 +20,17 @@ public class Normal implements Invader {
         return this.posY;
     }
     @Override
-    public void setPosX(int posX){
-        this.posX = posX;
+    public void setPosX(int num){
+
+        if (num == 0){
+            this.posX -= 1;
+        }else{
+            this.posX += 1;
+        }
     }
     @Override
-    public void setPosY(int posY){
-        this.posY = posY;
+    public void setPosY(){
+        this.posY += 1;
     }
     @Override
     public Object getImg(){
