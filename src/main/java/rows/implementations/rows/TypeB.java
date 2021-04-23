@@ -15,7 +15,6 @@ public class TypeB implements IRow {
         int max = 6;
         int random_int = (int)Math.floor(Math.random()*(max-min+1)+min);
         this.addInvaders(7, lista, random_int);
-        lista.pruebaFuncionamiento();
         return lista;
     }
     public void addInvaders(int cant, DoublyLinkedList list, int bossPos) {

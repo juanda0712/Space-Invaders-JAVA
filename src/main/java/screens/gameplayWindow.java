@@ -53,7 +53,7 @@ public class gameplayWindow extends JPanel implements ActionListener, MouseListe
 
     public IRow creador(){
         if(a==false){
-            row = factory.createaRow("basic");
+            row = factory.createaRow("a");
             a=true;
         }
          return row;
