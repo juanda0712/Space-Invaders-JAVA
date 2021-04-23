@@ -2,14 +2,19 @@ package main.java.screens;
 
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.MouseListener;
 
 
+/**
+ * Represents de main gameplay window
+ */
 public class mainGameplayWindow extends JFrame {
 
     private JFrame frame;
     gameplayWindow window;
 
+    /**
+     * Assigns the location of the window
+     */
     public mainGameplayWindow() {
 
         frame =  new JFrame("Space Invaders"); // crea la ventana

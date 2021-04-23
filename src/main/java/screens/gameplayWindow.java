@@ -14,6 +14,9 @@ import java.awt.event.MouseListener;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Represents the window of the gameplay
+ */
 public class gameplayWindow extends JPanel implements ActionListener, MouseListener {
 
     final int PANEL_WIDTH = 1020;
@@ -47,6 +50,11 @@ public class gameplayWindow extends JPanel implements ActionListener, MouseListe
     String texto;
 
 
+    /**
+     * Creates images of the game screen
+     *
+     * @param frame Frame of the window
+     */
     gameplayWindow(JFrame frame){
         this.setPreferredSize(new Dimension(PANEL_WIDTH, PANEL_HEIGHT)); // se crea el panel basado en las variables
         this.setBackground(Color.BLACK);// se define el color del fondo
@@ -100,6 +108,11 @@ public class gameplayWindow extends JPanel implements ActionListener, MouseListe
     }
 
 
+    /**
+     * Draws the images in the frame
+     *
+     * @param g the window
+     */
     public void paint(Graphics g) {
         int random = (int)(Math.random()*3+1);
         super.paint(g);
@@ -157,6 +170,11 @@ public class gameplayWindow extends JPanel implements ActionListener, MouseListe
         }
     }
 
+    /**
+     * Recognize events on the frame panel
+     *
+     * @param e Events
+     */
     @Override
     public void actionPerformed(ActionEvent e) {
         if (y > 490) {
@@ -180,6 +198,11 @@ public class gameplayWindow extends JPanel implements ActionListener, MouseListe
 
     }
 
+    /**
+     * Recognize when theres a click by the mouse
+     *
+     * @param e
+     */
     @Override
     public void mouseClicked(MouseEvent e) {
 
@@ -200,21 +223,41 @@ public class gameplayWindow extends JPanel implements ActionListener, MouseListe
         }
     }
 
+    /**
+     * Recognize when mouse was pressed
+     *
+     * @param e
+     */
     @Override
     public void mousePressed(MouseEvent e) {
 
     }
 
+    /**
+     * Recognize when mouse was released
+     *
+     * @param e
+     */
     @Override
     public void mouseReleased(MouseEvent e) {
 
     }
 
+    /**
+     * Recognize when there is an mouse input
+     *
+     * @param e
+     */
     @Override
     public void mouseEntered(MouseEvent e) {
 
     }
 
+    /**
+     * Recognize when the mouse input was exited
+     *
+     * @param e
+     */
     @Override
     public void mouseExited(MouseEvent e) {
 

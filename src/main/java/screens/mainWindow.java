@@ -5,6 +5,9 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+/**
+ * Representes the main window
+ */
 public class mainWindow {
 
     private JFrame frame;
@@ -15,6 +18,9 @@ public class mainWindow {
     private JButton exitButton;
     private JLabel tittle;
 
+    /**
+     * Creates the main window
+     */
     public mainWindow(){
 
         frame = new JFrame("Space Invaders"); // le da el nombre a la ventana
@@ -50,8 +56,12 @@ public class mainWindow {
         frame.setIconImage(Toolkit.getDefaultToolkit().getImage(getClass().getResource("Media\\Player.png")));
 
         ActionListener buttonListener = new ActionListener(){
+            /**
+             * Recognize buttoms pressed in the main window
+             *
+             * @param ae Event
+             */
             @Override
-            //Basado en el boton cierra la ventana actual y abre la requerida
             public void actionPerformed(ActionEvent ae){
                 Object o = ae.getSource();
                 if (o == startButton){

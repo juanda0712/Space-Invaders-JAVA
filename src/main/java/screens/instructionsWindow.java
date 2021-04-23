@@ -5,6 +5,9 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+/**
+ * Represents de instructions Window
+ */
 public class instructionsWindow implements ActionListener {
     private JFrame frame;
     private ImageIcon backIcon;
@@ -19,6 +22,9 @@ public class instructionsWindow implements ActionListener {
     private ImageIcon minion;
     private JLabel label3;
 
+    /**
+     * Adds the instructions to the window
+     */
     public instructionsWindow(){
 
         frame = new JFrame("Space Invaders"); // le da el nombre a la ventana
@@ -78,6 +84,11 @@ public class instructionsWindow implements ActionListener {
 
     }
 
+    /**
+     * Closes the instructios window
+     *
+     * @param e Event
+     */
     @Override
     public void actionPerformed(ActionEvent e) {
         frame.dispose(); // cierra la ventana y regresa al menu principal
