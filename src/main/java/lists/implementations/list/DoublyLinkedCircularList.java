@@ -6,10 +6,12 @@ import main.java.lists.nodes.TwoWaysNode;
 public class DoublyLinkedCircularList implements IList {
     @Override
     public void pruebaFuncionamiento(){
-        this.append("Arroba");
-        this.append("Hakuna");
-        this.append("Matata");
-        System.out.println(this.ShowDataInPos(-14));
+        this.append(3);
+        this.append(2);
+        this.append(1);
+        System.out.println(this.ShowDataInPos(2));
+        this.Delete(2);
+        System.out.println(this.ShowDataInPos(2));
         System.out.println(this.ShowDataInPos(15));
         System.out.println(this.getLarge());
         System.out.println("La lista circular doblemente enlazada funciona");
@@ -66,6 +68,32 @@ public class DoublyLinkedCircularList implements IList {
             this.actualpos += 1;
         }
         return smp.getData();
+    }
+
+    public void Delete (int pos) {
+        actualpos = 0;
+        if (pos == 0) {
+            this.tail.next = this.head.next;
+            this.head = this.head.next;
+            this.head.prev=this.head.prev.prev;
+            this.large -= 1;
+        }
+        else {
+            var smp = this.head;
+            while (actualpos <= pos) {
+                if (actualpos+1 == pos) {
+                    if (smp.next==this.tail){
+                        this.tail=smp;
+                    }
+                    smp.next = smp.next.next;
+                    smp=smp.next;
+                    smp.prev=smp.prev.prev;
+                    this.large -= 1;
+                }
+                smp = smp.next;
+                actualpos += 1;
+            }
+        }
     }
 }
 
