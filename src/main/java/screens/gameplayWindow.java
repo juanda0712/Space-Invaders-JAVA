@@ -15,11 +15,6 @@ public class gameplayWindow extends JPanel implements ActionListener, MouseListe
 
     final int PANEL_WIDTH = 1020;
     final int PANEL_HEIGHT = 720;
-    Image minion1;
-    Image minion2;
-    Image minion3;
-    Image minion4;
-    Image minion5;
     Image ship;
     Image yuca;
     Image background;
