@@ -14,6 +14,13 @@ import java.awt.event.MouseListener;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * create a factory to create Invaders
+ *
+ *@author Diego
+ *@since 1.0
+
+ */
 public class gameplayWindow extends JPanel implements ActionListener, MouseListener {
 
     final int PANEL_WIDTH = 1020;
@@ -127,7 +134,6 @@ public class gameplayWindow extends JPanel implements ActionListener, MouseListe
         for (int i = 0; i < lista.getLarge(); i++) {
             while (j < 1020) {
                 g2D.drawImage(lista.ShowDataInPos(i).getImg(), j, (int) y, null);
-                //System.out.println( lista.ShowDataInPos(i).getLife());
                 break;
             }
             j += 90;
