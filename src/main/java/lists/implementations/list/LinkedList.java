@@ -76,18 +76,21 @@ public class LinkedList implements IList {
 
     //Esta funcion elimina a un enemigo en una posicion especifica;
     public void Delete(int pos) {
+        actualpos=0;
         if (pos == 0) {
             this.head = this.head.next;
             this.large -= 1;
         }
-        var smp = this.head;
-        while (actualpos <= pos) {
-            if (actualpos == pos) {
-                smp.next = smp.next.next;
-                this.large -= 1;
+        else {
+            var smp = this.head;
+            while (actualpos <= pos) {
+                if (actualpos == pos) {
+                    smp.next = smp.next.next;
+                    this.large -= 1;
+                }
+                smp = smp.next;
+                actualpos += 1;
             }
-            smp = smp.next;
-            actualpos += 1;
         }
     }
 

@@ -66,7 +66,7 @@ public class DoublyLinkedList implements IList {
     public void InterChange(){
         var i=0;
         var smp= this.head;
-        while(i==0){
+        while(i<this.large){
             if (smp.getData().getName()=="boss"){
                 while(smp.getData().getLife()!=0){
 
@@ -90,6 +90,9 @@ public class DoublyLinkedList implements IList {
                                 smp3.next = smp;
                             }
                         }
+                        if (smp==this.tail){
+                            this.tail=smp;
+                        }
                         }
                     while (smp.prev!=null){
                         var smp2=smp.prev;
@@ -109,19 +112,25 @@ public class DoublyLinkedList implements IList {
                             if(smp.prev!=null) {
                                 smp.prev.next = smp;
                                 smp.prev.next = smp;
+                                smp.getData().applyDamage();
                             }
                         }
+                        if (smp==this.head){
+                            this.head=smp;
+                        }
                     }
-
+                    if (this.head==null) {
+                        while (this.large != 0) {
+                            Delete(0);
+                        }
+                    }
                 }
+                i++;
             }
-            i++;
             smp=smp.next;
 
         }
-        while (this.large!=0){
-            Delete(0);
-        }
+
     }
     @Override
     public void Delete (int pos){

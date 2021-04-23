@@ -131,28 +131,49 @@ public class CircularList implements IList {
     public void ascention(){
         var i=1;
         var smp=this.head;
+        var prev=this.tail;
         while (i!=0){
             if (smp.getData().getName()=="boss"){
                 var smp2=smp.next;
+                var prev2=smp;
                 var h=Math.floor(Math.random()*10);
                 while (h!=0){
+                    prev2=prev2.next;
                     smp2=smp2.next;
                     h--;
                 }
                 if (smp2==smp){
+                    prev2=prev2.next;
                     smp2=smp2.next;
                 }
                 var smp3=smp.next;
                 var smp4=smp2.next;
                 if (smp.next==smp2){
-                    smp3.next = smp2;
+                    prev.next=smp2;
                     smp.next=smp4;
                     smp2.next=smp;
                 }
+                else if(smp2.next==smp){
+                    prev2.next=smp;
+                    smp.next=smp2;
+                    smp2.next=smp3;
+                }
+                else if(this.large==3){
+                    if (smp.next==smp2){
+                        prev.next=smp2;
+                        smp.next=smp2.next;
+                        smp2.next=smp;
+                    }
+                    else if(smp2.next==smp){
+                        prev2.next=smp;
+                        smp2.next=prev2;
+                        smp.next=smp2;
+                    }
+                }
                 else {
-                    smp3.next = smp2;
-                    smp2.next = smp4;
-                    smp4.next = smp;
+                    prev.next=smp2;
+                    smp2.next = smp3;
+                    prev2.next = smp;
                     smp.next = smp4;
                 }
                 if (smp2==head){
@@ -169,6 +190,7 @@ public class CircularList implements IList {
                 }
                 i--;
             }
+            prev=prev.next;
             smp=smp.next;
         }
     }

@@ -57,13 +57,18 @@ public class gameplayWindow extends JPanel implements ActionListener, MouseListe
 
     }
 
-    public IRow creador(){
+    public void creador(){
         if(a==false){
             row = factory.createaRow("basic");
             a=true;
+            lista= creal(row);
         }
-         return row;
     }
+    public IList creal(IRow row){
+        lista= row.crear();
+        return lista;
+    }
+
 
     public void paint(Graphics g) {
         super.paint(g); // agrega al panel las imagenes
@@ -79,11 +84,13 @@ public class gameplayWindow extends JPanel implements ActionListener, MouseListe
         for (int i = 0; i < lista.getLarge(); i++) {
             while (j < 1020) {
                 g2D.drawImage(lista.ShowDataInPos(i).getImg(), j, (int) y, null);
+                //System.out.println( lista.ShowDataInPos(i).getLife());
                 break;
             }
             j += 90;
         }
         j = 0;
+        lista.InterChange();
 
         int mouseX = (int) MouseInfo.getPointerInfo().getLocation().getX(); // le da movimiento con el mouse al jugador
         //System.out.println(mouseX);

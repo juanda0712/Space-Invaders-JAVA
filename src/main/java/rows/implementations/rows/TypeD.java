@@ -18,7 +18,7 @@ public class TypeD implements IRow {
         int min = 0;
         int max = 6;
         int random_int = (int)Math.floor(Math.random()*(max-min+1)+min);
-        this.addInvaders(7, lista, random_int);
+        this.addInvaders(7, lista);
         return lista;
     }
 
@@ -29,17 +29,15 @@ public class TypeD implements IRow {
      * @param cant Numero de invaders que se quieren agregar a la lista
      * @param list La lista a la que se le quiere agregar los invdaders
      */
-    public void addInvaders(int cant, CircularList list, int bossPos){
+    public void addInvaders(int cant, CircularList list){
         InvadersFactory factory1 = new InvadersFactory();
         int pos = 0;
-        System.out.println(bossPos);
+        var i=0;
         while (pos != cant) {
-            if (pos == bossPos) {
                 list.append(factory1.createInvader("BOSS"));
-            } else {
-                list.append(factory1.createInvader("NORMAL"));
-            }
-            pos += 1;
+                System.out.println(list.ShowDataInPos(i).getLife());
+                i++;
+                pos += 1;
         }
 
     }
