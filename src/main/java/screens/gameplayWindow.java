@@ -23,17 +23,16 @@ public class gameplayWindow extends JPanel implements ActionListener{
     Image imagenes;
     Timer timer;
     int SpeedX;
-    double SpeedY = 5;
+    double SpeedY = 2;
     int x = 200;
     double y = 30;
     int buff = 0;
-    int base = 250;
+    int base = 60;
     int n = 7;
 
 
     RowsFactory factory = new RowsFactory();
-    IRow row = factory.createaRow("basic");
-    IList lista = row.crear();
+
 
     gameplayWindow(){
         this.setPreferredSize(new Dimension(PANEL_WIDTH, PANEL_HEIGHT));
@@ -55,6 +54,14 @@ public class gameplayWindow extends JPanel implements ActionListener{
         g2D.drawImage(background, 0, 0, null);
         var j = x;
 
+        int ramdom = (int) ((Math.random() * 4) + 2);
+
+        if(ramdom == 1){
+            IRow row = factory.createaRow("basic");
+            IList lista = row.crear();
+        }
+
+
 
         for (int i = 0; i < lista.getLarge() ; i++) {
             while (j < 1020){
@@ -67,7 +74,6 @@ public class gameplayWindow extends JPanel implements ActionListener{
 
         int mouseX = (int) MouseInfo.getPointerInfo().getLocation().getX();
         g2D.drawImage(ship, mouseX - 445, 550, null);
-
     }
 
     @Override
