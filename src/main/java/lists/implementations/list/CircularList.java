@@ -114,6 +114,10 @@ public class CircularList implements IList {
     //Esta funcion elimina a un enemigo en una posicion especifica;
     //Esta funcion elimina a un enemigo en una posicion especifica;
 
+    /**
+     * Delete a node in an especific position
+     * @param pos is the position in the list
+     */
     @Override
     public void Delete (int pos) {
         actualpos = 0;
@@ -138,13 +142,20 @@ public class CircularList implements IList {
         }
     }
 
+
     @Override
     public void DeleteAll() {
     }
 
+
     @Override
     public void InterChange() {
     }
+
+    /**
+     * If a node that contains boss dies
+     * it choose another node and convert it into a boss
+     */
     @Override
     public void ascention(){
         var i=1;

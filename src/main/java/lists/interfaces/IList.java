@@ -11,7 +11,7 @@ import main.java.invaders.interfaces.Invader;
  */
 public interface IList {
     /**
-     * add a node to the list
+     * Set an Invader as the data of a node and add it to a list
      * @param data is the object to be added
      */
     void append(Invader data);

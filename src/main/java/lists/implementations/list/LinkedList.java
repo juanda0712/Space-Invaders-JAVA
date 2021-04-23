@@ -4,6 +4,11 @@ import main.java.invaders.interfaces.Invader;
 import main.java.lists.interfaces.IList;
 import main.java.lists.nodes.OneWayNode;
 
+/**
+ * @author Jordy
+ * Class that generates a Simple linked List
+ *
+ */
 public class LinkedList implements IList {
 
     int large;
@@ -32,11 +37,20 @@ public class LinkedList implements IList {
         }
     }
 
+    /**
+     * Show the large of the list
+     * @return an int with the large of the list
+     */
     @Override
     public int getLarge() {
         return this.large;
     }
 
+    /**
+     * Show the data in an especific node
+     * @param x is the position in the list
+     * @return the data of the node in position x
+     */
     public Invader ShowDataInPos(int x) {
         actualpos = 0;
         var smp = this.head;
@@ -64,6 +78,9 @@ public class LinkedList implements IList {
         }
     }
 
+    /**
+     * Delete all the nodes in the list
+     */
     public void DeleteAll() {
         var smp = this.head;
         var smp2 = smp;
@@ -82,6 +99,10 @@ public class LinkedList implements IList {
         }
     }
 
+    /**
+     * Delete a node in an especific position
+     * @param pos is the position in the list
+     */
     //Esta funcion elimina a un enemigo en una posicion especifica;
     public void Delete(int pos) {
         actualpos=0;

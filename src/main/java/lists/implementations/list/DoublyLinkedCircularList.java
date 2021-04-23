@@ -4,6 +4,11 @@ import main.java.invaders.interfaces.Invader;
 import main.java.lists.interfaces.IList;
 import main.java.lists.nodes.TwoWaysNode;
 
+/**
+ * @author Jordy
+ * Class that generates a Doubly linked Cirular List
+ *
+ */
 public class DoublyLinkedCircularList implements IList {
     int large;
     int actualpos;
@@ -40,12 +45,18 @@ public class DoublyLinkedCircularList implements IList {
     }
 
     /**
-     * return the large of the list
+     * Show the large of the list
+     * @return an int with the large of the list
      */
     public int getLarge() {
         return this.large;
     }
 
+    /**
+     * Show the data in an especific node
+     * @param x is the position in the list
+     * @return the data of the node in position x
+     */
     public Invader ShowDataInPos(int x) {
         actualpos=0;
         var smp = this.head;
@@ -66,6 +77,10 @@ public class DoublyLinkedCircularList implements IList {
         return (Invader) smp.getData();
     }
 
+    /**
+     * Delete a node in an especific position
+     * @param pos is the position in the list
+     */
     public void Delete (int pos) {
         actualpos = 0;
         if (pos == 0) {
@@ -93,16 +108,18 @@ public class DoublyLinkedCircularList implements IList {
     }
 
     @Override
-    public void DeleteAll() {
-    }
+    public void DeleteAll() {}
 
     @Override
-    public void BubbleSort() {
-    }
+    public void BubbleSort() {}
 
     @Override
     public void InterChange() {}
 
+    /**
+     * If a node that contains boss dies
+     * it choose another node and convert it into a boss
+     */
     @Override
     public void ascention(){
         var i=1;
