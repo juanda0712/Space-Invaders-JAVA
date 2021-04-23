@@ -44,6 +44,7 @@ public class gameplayWindow extends JPanel implements ActionListener, MouseListe
     Image imagenes;
     PlasmaBeam disparo = new PlasmaBeam(400,400);
     List<PlasmaBeam> listaDisparos = new ArrayList<PlasmaBeam>();
+    String texto;
 
 
     gameplayWindow(JFrame frame){
@@ -61,20 +62,23 @@ public class gameplayWindow extends JPanel implements ActionListener, MouseListe
 
     }
 
-    public void creador(int rowGenerador){
+    public void creador(int rowGenerador, Graphics g){
         if(a==false){
             if(rowGenerador==1){
                 row = factory.createaRow("basic");
                 a=true;
                 lista= creal(row);
+                texto = "Basic ";
             }else if(rowGenerador==2){
-                row = factory.createaRow("d");
-                a=true;
-                lista= creal(row);
-            }else{
                 row = factory.createaRow("a");
                 a=true;
                 lista= creal(row);
+                texto = "Type A";
+            }else{
+                row = factory.createaRow("d");
+                a=true;
+                lista= creal(row);
+                texto = "Type D";
             }
         }
 
@@ -86,9 +90,9 @@ public class gameplayWindow extends JPanel implements ActionListener, MouseListe
 
 
     public void paint(Graphics g) {
-
+        int random = (int)(Math.random()*3+1);
         super.paint(g);
-        creador((int)(Math.random()*3+1));
+        creador(random,g);
         if(lista.getLarge()==0){
             a=false;
             SpeedY+=0.25;
@@ -103,10 +107,9 @@ public class gameplayWindow extends JPanel implements ActionListener, MouseListe
         g.setFont(new Font("Arial", 1, 25));
         FontMetrics metrics = getFontMetrics(g.getFont());
         g2D.drawImage(background, 0, 0, null);// pinta en el panel el fondo
-        g.drawString("Puntaje", PANEL_WIDTH - metrics.stringWidth("Puntaje")-50, 50);
+        g.drawString("Score", PANEL_WIDTH - metrics.stringWidth("Score")-50, 50);
         g.drawString(strp, PANEL_WIDTH - metrics.stringWidth(strp)-90, 90);
-
-
+        g.drawString(texto, 50, 50);
 
         var j = x;
 
