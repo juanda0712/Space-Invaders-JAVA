@@ -35,6 +35,10 @@ public class gameplayWindow extends JPanel implements ActionListener, MouseListe
     boolean shoot = false;
     private int cont = 0;
 
+    IList lista;
+    boolean kill=false;
+
+
     RowsFactory factory = new RowsFactory();
 
     Image imagenes;
@@ -71,10 +75,16 @@ public class gameplayWindow extends JPanel implements ActionListener, MouseListe
 
 
     public void paint(Graphics g) {
-        super.paint(g); // agrega al panel las imagenes
 
-        var rowi = creador();
-        IList lista = rowi.crear();
+        super.paint(g);
+        creador();
+        if(lista.getLarge()==0){
+            a=false;
+            SpeedY+=0.25;
+            y=30;
+        }
+        lista.BubbleSort();
+
         Graphics2D g2D = (Graphics2D) g;
 
         g2D.drawImage(background, 0, 0, null);// pinta en el panel el fondo
@@ -92,8 +102,10 @@ public class gameplayWindow extends JPanel implements ActionListener, MouseListe
         j = 0;
         lista.InterChange();
 
-        int mouseX = (int) MouseInfo.getPointerInfo().getLocation().getX(); // le da movimiento con el mouse al jugador
-        //System.out.println(mouseX);
+
+
+
+        int mouseX = (int) MouseInfo.getPointerInfo().getLocation().getX();
         if (mouseX > 1372) {
             mouseX = 1372;
         } else if (mouseX < 453) {
@@ -126,6 +138,18 @@ public class gameplayWindow extends JPanel implements ActionListener, MouseListe
 
     @Override
     public void mouseClicked(MouseEvent e) {
+        JOptionPane.showMessageDialog(null, "Troleado");
+        lista.ShowDataInPos(0).applyDamage();
+        for (int i = 0; i < lista.getLarge(); i++) {
+            if (lista.ShowDataInPos(i).getLife() == 0) {
+                if (lista.ShowDataInPos(i).getName()=="Boss"){
+                    lista.DeleteAll();
+                }
+                else {
+                    lista.Delete(i);
+                }
+            }
+        }
     }
 
     @Override
