@@ -24,6 +24,7 @@ public class gameplayWindow extends JPanel implements ActionListener, MouseListe
     Image background;
     Timer timer;
     int SpeedX;
+<<<<<<< Updated upstream
     double SpeedY = 2;
     int x = 200;
     double y = 30;
@@ -36,6 +37,22 @@ public class gameplayWindow extends JPanel implements ActionListener, MouseListe
     IRow row;
 
     RowsFactory factory = new RowsFactory();
+=======
+    double SpeedY = 3;
+    int x = 290;
+    double y = 30;
+    int buff = 0;
+    int base = 60;
+    private JFrame frame;
+
+    Image imagenes;
+    int n = 7;
+
+    RowsFactory factory = new RowsFactory();
+    IRow row = factory.createaRow("basic");
+    IList lista = row.crear();
+
+>>>>>>> Stashed changes
 
     gameplayWindow(JFrame frame){
         this.setPreferredSize(new Dimension(PANEL_WIDTH, PANEL_HEIGHT));
@@ -50,10 +67,16 @@ public class gameplayWindow extends JPanel implements ActionListener, MouseListe
         timer = new Timer(60, this);
         timer.start();
         this.frame = frame;
+<<<<<<< Updated upstream
         addMouseListener(this);
+=======
+>>>>>>> Stashed changes
 
 
+<<<<<<< Updated upstream
 
+=======
+>>>>>>> Stashed changes
     }
 
     public IRow creador(){
@@ -92,7 +115,10 @@ public class gameplayWindow extends JPanel implements ActionListener, MouseListe
             mouseX = 453;
         }
         g2D.drawImage(ship, mouseX - 445, 550, null);
+<<<<<<< Updated upstream
 
+=======
+>>>>>>> Stashed changes
     }
 
     @Override
@@ -103,12 +129,13 @@ public class gameplayWindow extends JPanel implements ActionListener, MouseListe
             SpeedY = 0;
             mainWindow v1 = new mainWindow();
             frame.dispose();
+<<<<<<< Updated upstream
 
+=======
+>>>>>>> Stashed changes
         }
             y = y + SpeedY;
             repaint();
-
-
     }
 
     @Override

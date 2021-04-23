@@ -30,7 +30,7 @@ public class instructionsWindow implements ActionListener {
         text2 = new JLabel("Don't get touched or Game Over!");
         text3 = new JLabel("Be careful with the bosses");
 
-        ship = new ImageIcon(Toolkit.getDefaultToolkit().getImage(getClass().getResource("media\\Player.png")));
+        ship = new ImageIcon(Toolkit.getDefaultToolkit().getImage(getClass().getResource("Media\\Player.png")));
         label2 = new JLabel(backIcon);
         label3 = new JLabel(backIcon);
         minion = new ImageIcon(Toolkit.getDefaultToolkit().getImage(getClass().getResource("Media\\Minion.png")));
