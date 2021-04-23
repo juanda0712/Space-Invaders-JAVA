@@ -1,5 +1,6 @@
 package main.java.screens;
 
+import main.java.lists.interfaces.IList;
 import main.java.rows.factories.RowsFactory;
 import main.java.rows.interfaces.IRow;
 
@@ -44,6 +45,8 @@ public class gameplayWindow extends JPanel implements ActionListener{
         timer.start();
 
         IRow row = factory.createaRow("basic");
+        IList lista = row.crear();
+
     }
     public void paint(Graphics g){
 
