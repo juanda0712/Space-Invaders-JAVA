@@ -10,7 +10,7 @@ public class Basic implements IRow {
     @Override
     public IList crear(){
         LinkedList lista = new LinkedList();
-        this.addInvaders(6, lista);
+        this.addInvaders(7, lista);
         return lista;
     }
 

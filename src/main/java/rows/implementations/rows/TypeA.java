@@ -20,7 +20,6 @@ public class TypeA implements IRow {
     public void addInvaders(int cant, LinkedList list, int bossPos){
         InvadersFactory factory1 = new InvadersFactory();
         int pos = 0;
-        System.out.println(bossPos);
         while (pos != cant) {
             if (pos == bossPos) {
                 list.append(factory1.createInvader("BOSS"));

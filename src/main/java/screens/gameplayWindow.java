@@ -20,6 +20,7 @@ public class gameplayWindow extends JPanel implements ActionListener{
     Image minion5;
     Image ship;
     Image background;
+    Image imagenes;
     Timer timer;
     int SpeedX;
     double SpeedY = 10;
@@ -27,26 +28,22 @@ public class gameplayWindow extends JPanel implements ActionListener{
     double y = 30;
     int buff = 0;
     int base = 250;
+    int n = 7;
 
 
     RowsFactory factory = new RowsFactory();
+    IRow row = factory.createaRow("basic");
+    IList lista = row.crear();
 
     gameplayWindow(){
         this.setPreferredSize(new Dimension(PANEL_WIDTH, PANEL_HEIGHT));
         this.setBackground(Color.BLACK);
         background = new ImageIcon("Background.png").getImage();
-        minion1 = new ImageIcon("Minion.png").getImage();
-        minion2 = new ImageIcon("Minion.png").getImage();
-        minion3 = new ImageIcon("Minion.png").getImage();
-        minion4 = new ImageIcon("Minion.png").getImage();
-        minion5 = new ImageIcon("Minion.png").getImage();
         ship = new ImageIcon("Player.png").getImage();
         timer = new Timer(base - buff, this);
         timer.start();
 
-        IRow row = factory.createaRow("basic");
-        IList lista = row.crear();
-        System.out.println(lista.ShowDataInPos(0));
+        imagenes = lista.ShowDataInPos(0).getImg();
 
     }
     public void paint(Graphics g){
@@ -56,12 +53,18 @@ public class gameplayWindow extends JPanel implements ActionListener{
         Graphics2D g2D = (Graphics2D) g;
 
         g2D.drawImage(background, 0, 0, null);
+        var j = x;
 
-        g2D.drawImage(minion1, x, (int)y, null);
-        g2D.drawImage(minion2, x + 90, (int)y, null);
-        g2D.drawImage(minion3, x + 180, (int)y, null);
-        g2D.drawImage(minion4, x + 270, (int)y, null);
-        g2D.drawImage(minion5, x + 360, (int)y, null);
+
+        for (int i = 0; i < lista.getLarge() ; i++) {
+            while (j < 1020){
+                g2D.drawImage(lista.ShowDataInPos(i).getImg(), j, (int)y, null);
+                break;
+            }
+            j+=90;
+        }
+        j=0;
+
         g2D.drawImage(ship, 470, 550, null);
 
     }

@@ -3,13 +3,16 @@ package main.java.invaders.implementations;
 import main.java.invaders.interfaces.Invader;
 
 import javax.swing.*;
+import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 public class Normal implements Invader {
 
     private int posX;
     private int posY;
     private int life = 1;
-    private Object img = new ImageIcon(this.getClass().getResource("Media\\Minion.png"));
+    private Image img = new ImageIcon("Minion.png").getImage();
     private String name="minion";
     @Override
     public int getPosX(){
@@ -33,7 +36,7 @@ public class Normal implements Invader {
         this.posY += 1;
     }
     @Override
-    public Object getImg(){
+    public Image getImg(){
         return this.img;
     }
     @Override

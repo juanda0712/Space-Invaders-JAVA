@@ -10,13 +10,5 @@ public class Main {
         mainWindow v1 = new mainWindow();
         //mainGameplayWindow g1 = new mainGameplayWindow();
 
-
-
-        RowsFactory factory = new RowsFactory();
-        IRow row = factory.createaRow("basic");
-        IList lista = row.crear();
-        System.out.println(lista.ShowDataInPos(0));
-
-
     }
 }

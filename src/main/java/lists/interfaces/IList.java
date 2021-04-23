@@ -9,10 +9,7 @@ public interface IList {
     Invader ShowDataInPos(int x);
     void DeleteAll();
     void Delete (int pos);
-
     void BubbleSort();
-
     void InterChange();
-
     void ascention();
 }

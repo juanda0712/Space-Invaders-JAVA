@@ -1,11 +1,13 @@
 package main.java.invaders.interfaces;
 
+import java.awt.*;
+
 public interface Invader {
     int getPosX();
     int getPosY();
     void setPosX(int num);
     void setPosY();
-    Object getImg();
+    Image getImg();
     int getLife();
     void applyDamage();
     void prueba();

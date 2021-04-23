@@ -3,12 +3,13 @@ package main.java.invaders.implementations;
 import main.java.invaders.interfaces.Invader;
 
 import javax.swing.*;
+import java.awt.*;
 
 public class Boss implements Invader {
     private int posX;
     private int posY;
     private double life = ((Math.random() * 4) + 2);
-    private Object img = new ImageIcon(this.getClass().getResource("Media\\Minion.png"));
+    private Image img = new ImageIcon("Minion.png").getImage();
     private String name = "boss";
 
     @Override
@@ -32,7 +33,7 @@ public class Boss implements Invader {
         this.posY += 1 ;
     }
     @Override
-    public Object getImg(){
+    public Image getImg(){
         return this.img;
     }
     @Override
