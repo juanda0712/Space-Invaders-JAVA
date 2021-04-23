@@ -23,8 +23,8 @@ public class gameplayWindow extends JPanel implements ActionListener{
     Image imagenes;
     Timer timer;
     int SpeedX;
-    double SpeedY = 10;
-    int x = 290;
+    double SpeedY = 5;
+    int x = 200;
     double y = 30;
     int buff = 0;
     int base = 250;
@@ -65,7 +65,8 @@ public class gameplayWindow extends JPanel implements ActionListener{
         }
         j=0;
 
-        g2D.drawImage(ship, 470, 550, null);
+        int mouseX = (int) MouseInfo.getPointerInfo().getLocation().getX();
+        g2D.drawImage(ship, mouseX - 445, 550, null);
 
     }
 
@@ -76,6 +77,7 @@ public class gameplayWindow extends JPanel implements ActionListener{
             y = 490;
             SpeedY = 0;
             mainWindow v1 = new mainWindow();
+
         }
             y = y + SpeedY;
             repaint();
