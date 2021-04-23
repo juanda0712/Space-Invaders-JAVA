@@ -10,14 +10,14 @@ public class Basic implements IRow {
     public void creaLista(){
         LinkedList lista = new LinkedList();
         this.addInvaders(6, lista);
-        lista.pruebaFuncionamiento();
+        lista.ShowDataInPos(0);
     }
 
     public void addInvaders(int cant, LinkedList list){
         InvadersFactory factory1 = new InvadersFactory();
         while (cant != 0) {
-            Invader newInvader = factory1.createInvader("NORMAL");
-            list.append("1");
+           // Invader newInvader = factory1.createInvader("NORMAL");
+            list.append(factory1.createInvader("NORMAL"));
             cant -= 1;
         }
     }
