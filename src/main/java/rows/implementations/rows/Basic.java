@@ -16,11 +16,13 @@ public class Basic implements IRow {
     public void addInvaders(int cant, LinkedList list){
         InvadersFactory factory1 = new InvadersFactory();
         while (cant != 0) {
+<<<<<<< Updated upstream
            // Invader newInvader = factory1.createInvader("NORMAL");
+=======
+>>>>>>> Stashed changes
             list.append(factory1.createInvader("NORMAL"));
             cant -= 1;
         }
     }
-
 }
 

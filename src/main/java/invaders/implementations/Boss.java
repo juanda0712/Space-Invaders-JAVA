@@ -2,10 +2,13 @@ package main.java.invaders.implementations;
 
 import main.java.invaders.interfaces.Invader;
 
+import javax.swing.*;
+
 public class Boss implements Invader {
     private int posX;
     private int posY;
     private double life = ((Math.random() * 4) + 2);
+    private Object img = new ImageIcon(this.getClass().getResource("Media\\Minion.png"));
 
     @Override
     public int getPosX(){
@@ -23,10 +26,10 @@ public class Boss implements Invader {
     public void setPosY(int posY){
         this.posY = posY;
     }
-//    @Override
-//    public Object getImg(){
-//
-//    }
+    @Override
+    public Object getImg(){
+        return this.img;
+    }
     @Override
     public int getLife(){
         return (int)this.life;
@@ -34,5 +37,10 @@ public class Boss implements Invader {
     @Override
     public void applyDamage(){
         this.life -= 1;
+    }
+
+    @Override
+    public void prueba(){
+        System.out.println("El invader esta dentro de la lista");
     }
 }

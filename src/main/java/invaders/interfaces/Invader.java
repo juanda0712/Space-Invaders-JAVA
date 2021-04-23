@@ -5,8 +5,9 @@ public interface Invader {
     int getPosY();
     void setPosX(int posx);
     void setPosY(int posy);
-//    Object getImg();
+    Object getImg();
     int getLife();
     void applyDamage();
+    void prueba();
 
 }

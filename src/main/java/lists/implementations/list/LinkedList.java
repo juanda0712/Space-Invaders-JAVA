@@ -7,10 +7,6 @@ import main.java.lists.nodes.OneWayNode;
 public class LinkedList implements IList {
     @Override
     public void pruebaFuncionamiento(){
-        this.append(15);
-        this.append(15);
-        this.append(5);
-        this.append(8);
         System.out.println(this.ShowDataInPos(0));
         System.out.println(getLarge());
         System.out.println("La lista simple funciona");
