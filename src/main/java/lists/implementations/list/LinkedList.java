@@ -26,8 +26,8 @@ public class LinkedList implements IList {
     public LinkedList() {
         new OneWayNode(null);
     }
-
-    public void append(Object data) {
+    @Override
+    public void append(Invader data) {
         this.large += 1;
         if (this.head == null) {
             this.head = new OneWayNode(data);
@@ -38,7 +38,7 @@ public class LinkedList implements IList {
             this.tail=smp.next;
         }
     }
-
+    @Override
     public int getLarge() {
         return this.large;
     }
@@ -98,5 +98,14 @@ public class LinkedList implements IList {
             smp=smp.next;
             actualpos+=1;
         }
+    }
+
+    @Override
+    public void BubbleSort() {
+    }
+
+    @Override
+    public void moveBoss() {
+
     }
 }

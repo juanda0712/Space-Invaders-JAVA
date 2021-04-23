@@ -1,5 +1,8 @@
 package main.java.screens;
 
+import main.java.rows.factories.RowsFactory;
+import main.java.rows.interfaces.IRow;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
@@ -24,6 +27,9 @@ public class gameplayWindow extends JPanel implements ActionListener{
     int buff = 0;
     int base = 250;
 
+
+    RowsFactory factory = new RowsFactory();
+
     gameplayWindow(){
         this.setPreferredSize(new Dimension(PANEL_WIDTH, PANEL_HEIGHT));
         this.setBackground(Color.BLACK);
@@ -36,6 +42,8 @@ public class gameplayWindow extends JPanel implements ActionListener{
         ship = new ImageIcon("Player.png").getImage();
         timer = new Timer(base - buff, this);
         timer.start();
+
+        IRow row = factory.createaRow("basic");
     }
     public void paint(Graphics g){
 
@@ -61,11 +69,8 @@ public class gameplayWindow extends JPanel implements ActionListener{
             y = 490;
             SpeedY = 0;
             mainWindow v1 = new mainWindow();
-
         }
             y = y + SpeedY;
             repaint();
-
-
     }
 }

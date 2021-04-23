@@ -1,5 +1,6 @@
 package main.java.lists.implementations.list;
 
+import main.java.invaders.interfaces.Invader;
 import main.java.lists.interfaces.IList;
 import main.java.lists.nodes.OneWayNode;
 
@@ -15,13 +16,7 @@ public class CircularList implements IList {
             //this.append(a.nextInt(7));
             //i++;
         //}
-        this.append(2);
-        this.append(1);
-        this.append(1);
-        this.append(3);
-        this.append(6);
-        this.append(5);
-        this.append(4);
+
         for (i=0;i<this.large;i++) {
             System.out.println(this.ShowDataInPos(i));
         }
@@ -52,7 +47,8 @@ public class CircularList implements IList {
         new OneWayNode(null);
     }
 
-    public void append(Object data) {
+    @Override
+    public void append(Invader data) {
         this.large += 1;
         if (this.head == null) {
             this.head = new OneWayNode(data);
@@ -69,25 +65,28 @@ public class CircularList implements IList {
         }
     }
 
+    @Override
     public int getLarge() {
         return this.large;
     }
 
-    public Object ShowDataInPos(int x) {
+    @Override
+    public Invader ShowDataInPos(int x) {
         actualpos=0;
         var smp = this.head;
         if (x<0){
             throw new IllegalArgumentException("No existen las posiciones negativas");
         }
         if (x == 0) {
-            return smp.getData();
+            return  (Invader) smp.getData();
         }
         while (this.actualpos < x) {
             smp = smp.next;
             this.actualpos += 1;
             }
-        return smp.getData();
+        return (Invader) smp.getData();
     }
+
     public void BubbleSort(){
         for (int i = 0; i < this.large-1; i++ ) {
             var currentNode = this.head;
@@ -123,6 +122,8 @@ public class CircularList implements IList {
 
     //Esta funcion elimina a un enemigo en una posicion especifica;
     //Esta funcion elimina a un enemigo en una posicion especifica;
+
+    @Override
     public void Delete (int pos) {
         actualpos = 0;
         if (pos == 0) {
@@ -144,5 +145,12 @@ public class CircularList implements IList {
                 actualpos += 1;
             }
         }
+    }
+
+    @Override
+    public void DeleteAll() {
+    }
+    @Override
+    public void moveBoss() {
     }
 }

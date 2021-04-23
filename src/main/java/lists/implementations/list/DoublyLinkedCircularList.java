@@ -57,16 +57,16 @@ public class DoublyLinkedCircularList implements IList {
                 smp=smp.prev;
                 this.actualpos -= 1;
             }
-            return smp.getData();
+            return (Invader) smp.getData();
         }
         if (x == 0) {
-            return smp.getData();
+            return (Invader) smp.getData();
         }
         while (this.actualpos < x) {
             smp = smp.next;
             this.actualpos += 1;
         }
-        return smp.getData();
+        return (Invader) smp.getData();
     }
 
     public void Delete (int pos) {
@@ -93,6 +93,18 @@ public class DoublyLinkedCircularList implements IList {
                 actualpos += 1;
             }
         }
+    }
+
+    @Override
+    public void DeleteAll() {
+    }
+
+    @Override
+    public void BubbleSort() {
+    }
+
+    @Override
+    public void moveBoss() {
     }
 }
 

@@ -41,14 +41,15 @@ public class DoublyLinkedList implements IList {
         return this.large;
     }
 
-    public Object ShowDataInPos(int x) {
+    @Override
+    public Invader ShowDataInPos(int x) {
         actualpos=0;
         var smp = this.head;
         if (x<0){
             throw new IllegalArgumentException("No existen las posiciones negativas");
         }
         if (x == 0) {
-            return smp.getData();
+            return (Invader) smp.getData();
         }
         if (x<=this.large/2) {
             while (this.actualpos < x) {
@@ -68,8 +69,10 @@ public class DoublyLinkedList implements IList {
                 this.actualpos-=1;
             }
         }
-        return smp.getData();
+        return (Invader) smp.getData();
     }
+
+    @Override
     public void moveBoss(){
         var i=0;
         var smp= this.head;
@@ -130,7 +133,7 @@ public class DoublyLinkedList implements IList {
             Delete(0);
         }
     }
-
+    @Override
     public void Delete (int pos){
         actualpos=0;
         if(this.large==1){
@@ -156,4 +159,14 @@ public class DoublyLinkedList implements IList {
         }
         }
     }
+
+    @Override
+    public void DeleteAll() {
+    }
+
+    @Override
+    public void BubbleSort() {
+
+    }
+
 }
