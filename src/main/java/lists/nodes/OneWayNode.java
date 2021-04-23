@@ -1,15 +1,17 @@
 package main.java.lists.nodes;
 
+import main.java.invaders.interfaces.Invader;
+
 public class OneWayNode {
-    public Object data;
+    public Invader data;
     public OneWayNode next;
 
-    public OneWayNode (Object dato){
+    public OneWayNode (Invader dato){
         this.data=dato;
         this.next=null;
     }
 
-    public Object getData () {
+    public Invader getData () {
         return this.data;
     }
 

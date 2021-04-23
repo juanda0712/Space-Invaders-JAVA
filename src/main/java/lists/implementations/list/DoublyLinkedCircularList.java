@@ -7,11 +7,15 @@ import main.java.lists.nodes.TwoWaysNode;
 public class DoublyLinkedCircularList implements IList {
     @Override
     public void pruebaFuncionamiento(){
-
-        System.out.println(this.ShowDataInPos(2));
-        this.Delete(2);
-        System.out.println(this.ShowDataInPos(2));
-        System.out.println(this.ShowDataInPos(15));
+        for (int i = 0; i < this.large; i++) {
+            System.out.println(this.ShowDataInPos(i));
+        }
+        //this.Delete(3);
+        System.out.println("----");
+        this.ascention();
+        for (int i = 0; i < this.large; i++) {
+            System.out.println(this.ShowDataInPos(i));
+        }
         System.out.println(this.getLarge());
         System.out.println("La lista circular doblemente enlazada funciona");
     }
@@ -51,6 +55,7 @@ public class DoublyLinkedCircularList implements IList {
     }
 
     public Invader ShowDataInPos(int x) {
+        actualpos=0;
         var smp = this.head;
         if (x<0){
             while (this.actualpos>x){
@@ -74,7 +79,7 @@ public class DoublyLinkedCircularList implements IList {
         if (pos == 0) {
             this.tail.next = this.head.next;
             this.head = this.head.next;
-            this.head.prev=this.head.prev.prev;
+            this.head.prev=this.tail;
             this.large -= 1;
         }
         else {
@@ -104,7 +109,68 @@ public class DoublyLinkedCircularList implements IList {
     }
 
     @Override
-    public void moveBoss() {
+    public void InterChange() {}
+
+    public void ascention(){
+        var i=1;
+        var smp=this.head;
+        while (i!=0){
+            if (smp.getData().getName()=="boss"){
+                var smp2=smp.next;
+                var h=Math.floor(Math.random()*10);
+                while (h!=0){
+                    smp2=smp2.next;
+                    h--;
+                }
+                if (smp2==smp){
+                    smp2=smp2.next;
+                }
+                var smp3=smp.prev;
+                var smp4=smp.next;
+                var smp5=smp2.prev;
+                var smp6=smp2.next;
+                if (smp.next==smp2){
+                    smp3.next = smp2;
+                    smp2.prev = smp3;
+                    smp.next=smp6;
+                    smp6.prev=smp;
+                    smp.prev=smp2;
+                    smp2.next=smp;
+                }
+                else if (smp.prev==smp2){
+                    smp4.prev = smp2;
+                    smp2.next = smp4;
+                    smp.next=smp2;
+                    smp5.next=smp;
+                    smp.prev=smp5;
+                    smp2.prev=smp;
+                }
+                else {
+                    smp3.next = smp2;
+                    smp2.prev = smp3;
+                    smp4.prev = smp2;
+                    smp2.next = smp4;
+                    smp5.next = smp;
+                    smp.prev = smp5;
+                    smp6.prev = smp;
+                    smp.next = smp6;
+                }
+                if (smp2==head){
+                    this.head=smp;
+                }
+                else if(smp==head){
+                    this.head=smp2;
+                }
+                else if (smp==tail){
+                    this.tail=smp2;
+                }
+                else if (smp2==tail){
+                    this.tail=smp;
+                }
+                i--;
+            }
+            smp=smp.next;
+        }
     }
 }
 

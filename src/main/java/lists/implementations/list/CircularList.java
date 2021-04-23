@@ -9,34 +9,9 @@ import java.util.Random;
 public class CircularList implements IList {
     @Override
     public void pruebaFuncionamiento(){
-        var i=0;
-        var h=7;
-        //while (i<h) {
-          //  Random a = new Random();
-            //this.append(a.nextInt(7));
-            //i++;
-        //}
 
-        for (i=0;i<this.large;i++) {
-            System.out.println(this.ShowDataInPos(i));
         }
-        this.BubbleSort();
-        System.out.println("------");
-        for (i=0;i<this.large;i++) {
-            System.out.println(this.ShowDataInPos(i));
-        }
-        System.out.println("---");
-        System.out.println(this.getLarge());
-        System.out.println("La lista circular funciona");
-        this.Delete(6);
-        for (i=0;i<this.large;i++) {
-            System.out.println(this.ShowDataInPos(i));
-        }
-        System.out.println("--");
-        System.out.println(this.getLarge());
-
-
-    }
+        
 
     int large=0;
     int actualpos;
@@ -93,7 +68,7 @@ public class CircularList implements IList {
             var prev=this.tail;
             var next = this.head.next;
             for (int j = 0; j < this.large - 1; j++) {
-                if ((int)currentNode.getData() >(int) next.getData()) {
+                if (currentNode.getData().getLife() > next.getData().getLife()) {
                     var temp = currentNode;
                     if (currentNode==this.head){
                         prev.next=next;
@@ -151,6 +126,50 @@ public class CircularList implements IList {
     public void DeleteAll() {
     }
     @Override
-    public void moveBoss() {
+    public void InterChange() {
+    }
+    public void ascention(){
+        var i=1;
+        var smp=this.head;
+        while (i!=0){
+            if (smp.getData().getName()=="boss"){
+                var smp2=smp.next;
+                var h=Math.floor(Math.random()*10);
+                while (h!=0){
+                    smp2=smp2.next;
+                    h--;
+                }
+                if (smp2==smp){
+                    smp2=smp2.next;
+                }
+                var smp3=smp.next;
+                var smp4=smp2.next;
+                if (smp.next==smp2){
+                    smp3.next = smp2;
+                    smp.next=smp4;
+                    smp2.next=smp;
+                }
+                else {
+                    smp3.next = smp2;
+                    smp2.next = smp4;
+                    smp4.next = smp;
+                    smp.next = smp4;
+                }
+                if (smp2==head){
+                    this.head=smp;
+                }
+                else if(smp==head){
+                    this.head=smp2;
+                }
+                else if (smp==tail){
+                    this.tail=smp2;
+                }
+                else if (smp2==tail){
+                    this.tail=smp;
+                }
+                i--;
+            }
+            smp=smp.next;
+        }
     }
 }

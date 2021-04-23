@@ -11,7 +11,7 @@ public class DoublyLinkedList implements IList {
 
         this.Delete(2);
         System.out.println(ShowDataInPos(2));
-        this.moveBoss();
+        this.InterChange();
         System.out.println("La lista doblemente enlazada funciona");
     }
 
@@ -73,7 +73,7 @@ public class DoublyLinkedList implements IList {
     }
 
     @Override
-    public void moveBoss(){
+    public void InterChange(){
         var i=0;
         var smp= this.head;
         while(i==0){

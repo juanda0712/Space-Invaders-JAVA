@@ -12,6 +12,7 @@ public class TypeE implements IRow {
         DoublyLinkedCircularList lista = new DoublyLinkedCircularList();
         this.addInvaders(7, lista);
         return lista;
+
     }
     public void addInvaders(int cant, DoublyLinkedCircularList list){
         InvadersFactory factory1 = new InvadersFactory();

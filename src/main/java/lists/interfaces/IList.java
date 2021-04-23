@@ -12,5 +12,5 @@ public interface IList {
 
     void BubbleSort();
 
-    void moveBoss();
+    void InterChange();
 }

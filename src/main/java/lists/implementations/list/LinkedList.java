@@ -105,7 +105,7 @@ public class LinkedList implements IList {
     }
 
     @Override
-    public void moveBoss() {
+    public void InterChange() {
 
     }
 }
