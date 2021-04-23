@@ -15,7 +15,11 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Represents the window of the gameplay
+ * create a factory to create Invaders
+ *
+ *@author Diego
+ *@since 1.0
+
  */
 public class gameplayWindow extends JPanel implements ActionListener, MouseListener {
 
@@ -140,7 +144,6 @@ public class gameplayWindow extends JPanel implements ActionListener, MouseListe
         for (int i = 0; i < lista.getLarge(); i++) {
             while (j < 1020) {
                 g2D.drawImage(lista.ShowDataInPos(i).getImg(), j, (int) y, null);
-                //System.out.println( lista.ShowDataInPos(i).getLife());
                 break;
             }
             j += 90;
