@@ -73,6 +73,9 @@ public class gameplayWindow extends JPanel implements ActionListener, MouseListe
         return lista;
     }
 
+    void shootAction(Graphics2D g2D){
+        g2D.drawImage(yuca, mouseX - 423, (int)y2, null);
+    }
 
     public void paint(Graphics g) {
 
@@ -113,7 +116,9 @@ public class gameplayWindow extends JPanel implements ActionListener, MouseListe
         }
         //g2D.drawImage(yuca, mouseX - 423, (int)y2, null);
         g2D.drawImage(ship, mouseX - 445, 550, null); // dibuja al jugador
-
+        if(shoot == true){
+            this.shootAction(g2D);
+        }
 
     }
 
@@ -138,6 +143,7 @@ public class gameplayWindow extends JPanel implements ActionListener, MouseListe
 
     @Override
     public void mouseClicked(MouseEvent e) {
+        shoot = true;
         JOptionPane.showMessageDialog(null, "Troleado");
         lista.ShowDataInPos(0).applyDamage();
         for (int i = 0; i < lista.getLarge(); i++) {
