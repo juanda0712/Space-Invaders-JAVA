@@ -23,8 +23,7 @@ public class gameplayWindow extends JPanel implements ActionListener, MouseListe
     Image ship;
     Image background;
     Timer timer;
-    int SpeedX;
-<<<<<<< Updated upstream
+    int SpeedX = 0;
     double SpeedY = 2;
     int x = 200;
     double y = 30;
@@ -58,11 +57,6 @@ public class gameplayWindow extends JPanel implements ActionListener, MouseListe
         this.setPreferredSize(new Dimension(PANEL_WIDTH, PANEL_HEIGHT));
         this.setBackground(Color.BLACK);
         background = new ImageIcon("Background.png").getImage();
-        minion1 = new ImageIcon("Minion.png").getImage();
-        minion2 = new ImageIcon("Minion.png").getImage();
-        minion3 = new ImageIcon("Minion.png").getImage();
-        minion4 = new ImageIcon("Minion.png").getImage();
-        minion5 = new ImageIcon("Minion.png").getImage();
         ship = new ImageIcon("Player.png").getImage();
         timer = new Timer(60, this);
         timer.start();
