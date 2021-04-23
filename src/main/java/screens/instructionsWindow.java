@@ -80,7 +80,7 @@ public class instructionsWindow implements ActionListener {
 
     @Override
     public void actionPerformed(ActionEvent e) {
-        frame.dispose();
+        frame.dispose(); // cierra la ventana y regresa al menu principal
         mainWindow v1 = new mainWindow();
     }
 }

@@ -12,7 +12,7 @@ public class mainGameplayWindow extends JFrame {
 
     public mainGameplayWindow() {
 
-        frame =  new JFrame("Space Invaders");
+        frame =  new JFrame("Space Invaders"); // crea la ventana
         window = new gameplayWindow(frame);
 
         frame.setSize(1020, 720);//le da tamaño a la ventana
@@ -21,7 +21,7 @@ public class mainGameplayWindow extends JFrame {
         frame.setVisible(true);//que la ventana se vea
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setIconImage(Toolkit.getDefaultToolkit().getImage(getClass().getResource("\\Media\\Player.png")));
-        frame.add(window);
+        frame.add(window); //agrega el panel del juego
     }
 }
 

@@ -43,14 +43,14 @@ public class gameplayWindow extends JPanel implements ActionListener, MouseListe
 
 
     gameplayWindow(JFrame frame){
-        this.setPreferredSize(new Dimension(PANEL_WIDTH, PANEL_HEIGHT));
-        this.setBackground(Color.BLACK);
-        background = new ImageIcon("Background.png").getImage();
+        this.setPreferredSize(new Dimension(PANEL_WIDTH, PANEL_HEIGHT)); // se crea el panel basado en las variables
+        this.setBackground(Color.BLACK);// se define el color del fondo
+        background = new ImageIcon("Background.png").getImage(); // se pone de fondo una imagen
         ship = new ImageIcon("Player.png").getImage();
-        timer = new Timer(60, this);
+        timer = new Timer(60, this); // los fps del programa
         timer.start();
         this.frame = frame;
-        addMouseListener(this);
+        addMouseListener(this);// funcionalidad del mouse
 
 
 
@@ -65,13 +65,13 @@ public class gameplayWindow extends JPanel implements ActionListener, MouseListe
     }
 
     public void paint(Graphics g) {
-        super.paint(g);
+        super.paint(g); // agrega al panel las imagenes
 
         var rowi = creador();
         IList lista = rowi.crear();
         Graphics2D g2D = (Graphics2D) g;
 
-        g2D.drawImage(background, 0, 0, null);
+        g2D.drawImage(background, 0, 0, null);// pinta en el panel el fondo
 
         var j = x;
 
@@ -84,38 +84,38 @@ public class gameplayWindow extends JPanel implements ActionListener, MouseListe
         }
         j = 0;
 
-        int mouseX = (int) MouseInfo.getPointerInfo().getLocation().getX();
+        int mouseX = (int) MouseInfo.getPointerInfo().getLocation().getX(); // le da movimiento con el mouse al jugador
         //System.out.println(mouseX);
         if (mouseX > 1372) {
             mouseX = 1372;
         } else if (mouseX < 453) {
             mouseX = 453;
         }
-        g2D.drawImage(ship, mouseX - 445, 550, null);
+        g2D.drawImage(ship, mouseX - 445, 550, null); // dibuja al jugador
 
     }
 
     @Override
     public void actionPerformed(ActionEvent e) {
         if (y > 490) {
-            JOptionPane.showMessageDialog(null, "GAME OVER!");
+            JOptionPane.showMessageDialog(null, "GAME OVER!"); // muestra un mensaje cuando se termina el juego
             y = 490;
             SpeedY = 0;
             mainWindow v1 = new mainWindow();
-            frame.dispose();
+            frame.dispose();//cierra la ventana
 
         }
         if(x >= PANEL_WIDTH - 650 || x < 0){
-            SpeedX = SpeedX * -1;
+            SpeedX = SpeedX * -1; // evita que los minions colisionen con los bordes
         }
-            x = x + SpeedX;
-            y = y + SpeedY;
-            repaint();
+            x = x + SpeedX;// le da el movimiento diagonal a los minions
+            y = y + SpeedY;//
+            repaint(); // re inserta a los minions dando la persepcion de movimiento
     }
 
     @Override
     public void mouseClicked(MouseEvent e) {
-        JOptionPane.showMessageDialog(null, "Troleado");
+        JOptionPane.showMessageDialog(null, "Troleado"); // al dar click hace una accion
     }
 
     @Override

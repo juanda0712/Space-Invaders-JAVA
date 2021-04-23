@@ -51,6 +51,7 @@ public class mainWindow {
 
         ActionListener buttonListener = new ActionListener(){
             @Override
+            //Basado en el boton cierra la ventana actual y abre la requerida
             public void actionPerformed(ActionEvent ae){
                 Object o = ae.getSource();
                 if (o == startButton){
@@ -60,7 +61,7 @@ public class mainWindow {
                     frame.dispose();
                     instructionsWindow in1 = new instructionsWindow();
                 }else if(JOptionPane.showConfirmDialog(frame, "Confirm if you want to exit the game", "Exit", JOptionPane.YES_NO_OPTION) == JOptionPane.YES_NO_OPTION) {
-                    System.exit(0);
+                    System.exit(0); // cierra el juego
                 }
             }
 
