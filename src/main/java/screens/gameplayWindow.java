@@ -35,6 +35,7 @@ public class gameplayWindow extends JPanel implements ActionListener, MouseListe
     boolean shoot = false;
     private int cont = 0;
 
+
     IList lista;
     boolean kill=false;
 
@@ -53,7 +54,7 @@ public class gameplayWindow extends JPanel implements ActionListener, MouseListe
         ship = new ImageIcon("Player.png").getImage();
         yuca = new ImageIcon("Yuca.png").getImage();
         timer = new Timer(60, this); // los fps del programa
-        timer.start();
+        timer.start();;
         this.frame = frame;
         addMouseListener(this);// funcionalidad del mouse
 
@@ -85,9 +86,17 @@ public class gameplayWindow extends JPanel implements ActionListener, MouseListe
         }
         lista.BubbleSort();
 
-        Graphics2D g2D = (Graphics2D) g;
+        String strp = String.valueOf(cont);
 
+        Graphics2D g2D = (Graphics2D) g;
+        g.setColor(Color.YELLOW);
+        g.setFont(new Font("Arial", 1, 25));
+        FontMetrics metrics = getFontMetrics(g.getFont());
         g2D.drawImage(background, 0, 0, null);// pinta en el panel el fondo
+        g.drawString("Puntaje", PANEL_WIDTH - metrics.stringWidth("Puntaje")-50, 50);
+        g.drawString(strp, PANEL_WIDTH - metrics.stringWidth(strp)-90, 90);
+
+
 
         var j = x;
 
