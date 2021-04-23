@@ -6,12 +6,11 @@ import main.java.lists.nodes.OneWayNode;
 
 import java.util.Random;
 
+/**
+ * Clase que genera listas circulares
+ *
+ */
 public class CircularList implements IList {
-    @Override
-    public void pruebaFuncionamiento(){
-
-        }
-
     int large=0;
     int actualpos;
     OneWayNode head=null;

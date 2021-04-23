@@ -5,21 +5,6 @@ import main.java.lists.interfaces.IList;
 import main.java.lists.nodes.TwoWaysNode;
 
 public class DoublyLinkedCircularList implements IList {
-    @Override
-    public void pruebaFuncionamiento(){
-        for (int i = 0; i < this.large; i++) {
-            System.out.println(this.ShowDataInPos(i));
-        }
-        //this.Delete(3);
-        System.out.println("----");
-        this.ascention();
-        for (int i = 0; i < this.large; i++) {
-            System.out.println(this.ShowDataInPos(i));
-        }
-        System.out.println(this.getLarge());
-        System.out.println("La lista circular doblemente enlazada funciona");
-    }
-
     int large;
     int actualpos;
     TwoWaysNode head=null;
