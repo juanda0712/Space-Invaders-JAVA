@@ -23,8 +23,8 @@ public class gameplayWindow extends JPanel implements ActionListener, MouseListe
     Image ship;
     Image background;
     Timer timer;
-    int SpeedX = 0;
-    double SpeedY = 2;
+    int SpeedX = 8;
+    double SpeedY = 1.5;
     int x = 200;
     double y = 30;
     double buff = 0.90;
@@ -36,22 +36,11 @@ public class gameplayWindow extends JPanel implements ActionListener, MouseListe
     IRow row;
 
     RowsFactory factory = new RowsFactory();
-=======
-    double SpeedY = 3;
-    int x = 290;
-    double y = 30;
-    int buff = 0;
-    int base = 60;
-    private JFrame frame;
 
     Image imagenes;
-    int n = 7;
 
-    RowsFactory factory = new RowsFactory();
-    IRow row = factory.createaRow("basic");
-    IList lista = row.crear();
 
->>>>>>> Stashed changes
+
 
     gameplayWindow(JFrame frame){
         this.setPreferredSize(new Dimension(PANEL_WIDTH, PANEL_HEIGHT));
@@ -61,16 +50,10 @@ public class gameplayWindow extends JPanel implements ActionListener, MouseListe
         timer = new Timer(60, this);
         timer.start();
         this.frame = frame;
-<<<<<<< Updated upstream
         addMouseListener(this);
-=======
->>>>>>> Stashed changes
 
 
-<<<<<<< Updated upstream
 
-=======
->>>>>>> Stashed changes
     }
 
     public IRow creador(){
@@ -102,17 +85,14 @@ public class gameplayWindow extends JPanel implements ActionListener, MouseListe
         j = 0;
 
         int mouseX = (int) MouseInfo.getPointerInfo().getLocation().getX();
-        System.out.println(mouseX);
+        //System.out.println(mouseX);
         if (mouseX > 1372) {
             mouseX = 1372;
         } else if (mouseX < 453) {
             mouseX = 453;
         }
         g2D.drawImage(ship, mouseX - 445, 550, null);
-<<<<<<< Updated upstream
 
-=======
->>>>>>> Stashed changes
     }
 
     @Override
@@ -123,11 +103,12 @@ public class gameplayWindow extends JPanel implements ActionListener, MouseListe
             SpeedY = 0;
             mainWindow v1 = new mainWindow();
             frame.dispose();
-<<<<<<< Updated upstream
 
-=======
->>>>>>> Stashed changes
         }
+        if(x >= PANEL_WIDTH - 650 || x < 0){
+            SpeedX = SpeedX * -1;
+        }
+            x = x + SpeedX;
             y = y + SpeedY;
             repaint();
     }
