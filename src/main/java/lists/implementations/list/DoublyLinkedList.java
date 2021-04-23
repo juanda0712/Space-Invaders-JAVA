@@ -5,16 +5,6 @@ import main.java.lists.interfaces.IList;
 import main.java.lists.nodes.TwoWaysNode;
 
 public class DoublyLinkedList implements IList {
-    @Override
-    public void pruebaFuncionamiento(){
-        System.out.println(ShowDataInPos(2));
-
-        this.Delete(2);
-        System.out.println(ShowDataInPos(2));
-        this.InterChange();
-        System.out.println("La lista doblemente enlazada funciona");
-    }
-
     int large;
     int actualpos;
     TwoWaysNode head=null;

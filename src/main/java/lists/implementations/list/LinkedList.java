@@ -5,19 +5,6 @@ import main.java.lists.interfaces.IList;
 import main.java.lists.nodes.OneWayNode;
 
 public class LinkedList implements IList {
-    @Override
-    public void pruebaFuncionamiento() {
-        System.out.println(this.ShowDataInPos(0));
-        System.out.println(getLarge());
-        System.out.println("La lista simple funciona");
-        System.out.println(ShowDataInPos(1));
-        this.Delete(0);
-        System.out.println(ShowDataInPos(1));
-        System.out.println(this.getLarge());
-        this.DeleteAll();
-        System.out.println(getLarge());
-        System.out.println(ShowDataInPos(9));
-    }
 
     int large;
     int actualpos = 0;
