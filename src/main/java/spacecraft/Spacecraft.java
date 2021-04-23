@@ -21,7 +21,7 @@ public class Spacecraft {
     public void setPosY(int posY){
         this.posY = posY;
     }
-    public PlasmaBeam shoot(){
-        return new PlasmaBeam();
-    }
+//    public PlasmaBeam shoot(){
+//        return new PlasmaBeam();
+//    }
 }
