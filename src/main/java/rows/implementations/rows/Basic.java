@@ -6,15 +6,15 @@ import main.java.lists.interfaces.IList;
 import main.java.rows.interfaces.IRow;
 
 /**
- * Representa el tipo de clase Basic.
+ * Represents the type class Basic
  */
 public class Basic implements IRow {
 
     /**
-     * Retorna una nueva lista tipo Lista Enlazada
-     * Y llama el metodo que añade los invaders
+     * Returns a new list of Linked List Type
+     * And calls the method that add the invaders
      *
-     * @return Una Lista Enlazada
+     * @return A Linked List
      */
     @Override
     public IList crear(){
@@ -24,11 +24,11 @@ public class Basic implements IRow {
     }
 
     /**
-     * Añade los invaders a la Lista creada
-     * Solamente añade invaders normales
+     * Adds the invaders to the Linked Lists
+     * It only adds normal invaders
      *
-     * @param cant Numero de invaders que se quieren agregar a la lista
-     * @param list La lista a la que se le quiere agregar los invdaders
+     * @param cant Number of invaders wanted to be added
+     * @param list The list which is wanted to be added the invaders
      */
     public void addInvaders(int cant, LinkedList list){
         InvadersFactory factory1 = new InvadersFactory();

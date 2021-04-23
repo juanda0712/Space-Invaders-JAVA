@@ -6,12 +6,15 @@ import main.java.lists.interfaces.IList;
 import main.java.rows.interfaces.IRow;
 
 /**
- * Retorna una nueva lista tipo Lista Circular
- * Y llama el metodo que añade los invaders
- *
- * @return Una Lista Circular
+ * Represents the type class D
  */
 public class TypeD implements IRow {
+    /**
+     * Returns a new list of Circular List Type
+     * And calls the method that add the invaders
+     *
+     * @return A Circular List
+     */
     @Override
     public IList crear(){
         CircularList lista = new CircularList();
@@ -23,11 +26,11 @@ public class TypeD implements IRow {
     }
 
     /**
-     * Añade los invaders a la Lista creada
-     * Añade jefes con diferentes resistencias
+     * Adds the invaders to the Linked Lists
+     * Adds Bosses with different health
      *
-     * @param cant Numero de invaders que se quieren agregar a la lista
-     * @param list La lista a la que se le quiere agregar los invdaders
+     * @param cant Number of invaders wanted to be added
+     * @param list The list which is wanted to be added the invaders
      */
     public void addInvaders(int cant, CircularList list){
         InvadersFactory factory1 = new InvadersFactory();

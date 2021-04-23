@@ -7,12 +7,15 @@ import main.java.lists.interfaces.IList;
 import main.java.rows.interfaces.IRow;
 
 /**
- * Retorna una nueva lista tipo Lista Doble y Circular
- * Y llama el metodo que añade los invaders
- *
- * @return Una Lista Doble y Circular
+ * Representsthe type class E
  */
 public class TypeE implements IRow {
+    /**
+     * Returns a new list of Doubly Linked List Type
+     * And calls the method that add the invaders
+     *
+     * @return A Doubly Linked List
+     */
     @Override
     public IList crear(){
         DoublyLinkedCircularList lista = new DoublyLinkedCircularList();
@@ -22,11 +25,11 @@ public class TypeE implements IRow {
     }
 
     /**
-     * Añade los invaders a la Lista creada
-     * Añade tanto invaders normales como un jefe
+     * Adds the invaders to the Linked Lists
+     * It only adds normal invaders
      *
-     * @param cant Numero de invaders que se quieren agregar a la lista
-     * @param list La lista a la que se le quiere agregar los invdaders
+     * @param cant Number of invaders wanted to be added
+     * @param list The list which is wanted to be added the invaders
      */
     public void addInvaders(int cant, DoublyLinkedCircularList list){
         InvadersFactory factory1 = new InvadersFactory();
