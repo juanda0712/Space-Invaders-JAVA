@@ -4,6 +4,7 @@ public class Spacecraft {
     private int posX;
     private int posY;
     private Object img;
+    //private boolean life = true;
 
     public int getPosX(){
         return this.posX;
