@@ -38,7 +38,6 @@ public class TypeD implements IRow {
         var i=0;
         while (pos != cant) {
                 list.append(factory1.createInvader("BOSS"));
-                System.out.println(list.ShowDataInPos(i).getLife());
                 i++;
                 pos += 1;
         }
