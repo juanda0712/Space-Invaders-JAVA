@@ -61,7 +61,7 @@ public class CircularList implements IList {
             }
         return (Invader) smp.getData();
     }
-
+    @Override
     public void BubbleSort(){
         for (int i = 0; i < this.large-1; i++ ) {
             var currentNode = this.head;
@@ -125,9 +125,11 @@ public class CircularList implements IList {
     @Override
     public void DeleteAll() {
     }
+
     @Override
     public void InterChange() {
     }
+    @Override
     public void ascention(){
         var i=1;
         var smp=this.head;

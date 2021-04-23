@@ -108,4 +108,6 @@ public class LinkedList implements IList {
     public void InterChange() {
 
     }
+    @Override
+    public void ascention(){}
 }

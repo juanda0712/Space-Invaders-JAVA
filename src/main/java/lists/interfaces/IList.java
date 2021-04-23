@@ -13,4 +13,6 @@ public interface IList {
     void BubbleSort();
 
     void InterChange();
+
+    void ascention();
 }

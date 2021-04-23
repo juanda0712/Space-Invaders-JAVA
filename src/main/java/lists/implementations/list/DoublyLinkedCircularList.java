@@ -111,6 +111,7 @@ public class DoublyLinkedCircularList implements IList {
     @Override
     public void InterChange() {}
 
+    @Override
     public void ascention(){
         var i=1;
         var smp=this.head;

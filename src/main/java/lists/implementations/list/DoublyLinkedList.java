@@ -166,7 +166,8 @@ public class DoublyLinkedList implements IList {
 
     @Override
     public void BubbleSort() {
-
     }
+    @Override
+    public void ascention(){}
 
 }
