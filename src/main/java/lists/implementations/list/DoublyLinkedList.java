@@ -1,19 +1,17 @@
 package main.java.lists.implementations.list;
 
+import main.java.invaders.interfaces.Invader;
 import main.java.lists.interfaces.IList;
 import main.java.lists.nodes.TwoWaysNode;
 
 public class DoublyLinkedList implements IList {
     @Override
     public void pruebaFuncionamiento(){
-        this.append(15);
-        this.append(14);
-        this.append(13);
-        this.append(30);
-        this.append(25);
         System.out.println(ShowDataInPos(2));
+
         this.Delete(2);
         System.out.println(ShowDataInPos(2));
+        this.moveBoss();
         System.out.println("La lista doblemente enlazada funciona");
     }
 
@@ -26,7 +24,7 @@ public class DoublyLinkedList implements IList {
         new TwoWaysNode(null);
     }
 
-    public void append(Object data) {
+    public void append(Invader data) {
         this.large += 1;
         if (this.head == null) {
             this.head = new TwoWaysNode(data);
@@ -72,24 +70,90 @@ public class DoublyLinkedList implements IList {
         }
         return smp.getData();
     }
+    public void moveBoss(){
+        var i=0;
+        var smp= this.head;
+        while(i==0){
+            if (smp.getData().getName()=="boss"){
+                while(smp.getData().getLife()!=0){
+
+                    while (smp.next!=null){
+                        var smp2=smp.prev;
+                        var smp3=smp.next;
+                        if (smp.prev==null){
+                            smp3.prev=smp2;
+                            smp.next=smp.next.next;
+                            smp.prev=smp3;
+                            smp.next.prev=smp;
+                            smp3.next=smp;
+                        }
+                        else {
+                            smp2.next = smp3;
+                            smp3.prev = smp2;
+                            smp.next = smp.next.next;
+                            smp.prev = smp3;
+                            if (smp.next!=null) {
+                                smp.next.prev = smp;
+                                smp3.next = smp;
+                            }
+                        }
+                        }
+                    while (smp.prev!=null){
+                        var smp2=smp.prev;
+                        var smp3=smp.next;
+                        if (smp.next==null){
+                            smp2.next=smp3;
+                            smp.prev=smp2.prev;
+                            smp.next=smp2;
+                            smp2.prev=smp;
+                            smp.prev.next=smp;
+                        }
+                        else {
+                            smp2.next = smp3;
+                            smp3.prev = smp2;
+                            smp.prev = smp.prev.prev;
+                            smp.next = smp2;
+                            if(smp.prev!=null) {
+                                smp.prev.next = smp;
+                                smp.prev.next = smp;
+                            }
+                        }
+                    }
+
+                }
+            }
+            i++;
+            smp=smp.next;
+
+        }
+        while (this.large!=0){
+            Delete(0);
+        }
+    }
 
     public void Delete (int pos){
         actualpos=0;
-        if (pos==0){
+        if(this.large==1){
+            this.head=null;
+            this.large--;
+        }
+        else if (pos==0){
             this.head=this.head.next;
             this.head.prev=null;
             this.large-=1;
         }
+        else {
         var smp=this.head;
-        while(actualpos<=pos){
-            if (actualpos+1==pos){
-                smp.next=smp.next.next;
-                smp=smp.next;
-                smp.prev=smp.prev.prev;
-                this.large-=1;
+        while(actualpos<=pos) {
+            if (actualpos + 1 == pos) {
+                smp.next = smp.next.next;
+                smp = smp.next;
+                smp.prev = smp.prev.prev;
+                this.large -= 1;
             }
-            smp=smp.next;
-            actualpos+=1;
+            smp = smp.next;
+            actualpos += 1;
+        }
         }
     }
 }

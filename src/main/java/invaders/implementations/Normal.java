@@ -10,7 +10,7 @@ public class Normal implements Invader {
     private int posY;
     private int life = 1;
     private Object img = new ImageIcon(this.getClass().getResource("Media\\Minion.png"));
-
+    private String name="minion";
     @Override
     public int getPosX(){
         return this.posX;
@@ -48,4 +48,7 @@ public class Normal implements Invader {
     public void prueba(){
         System.out.println("El invader esta dentro de la lista");
     }
+
+    @Override
+    public String getName(){return this.name;}
 }

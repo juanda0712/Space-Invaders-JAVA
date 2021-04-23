@@ -48,4 +48,7 @@ public class Boss implements Invader {
     public void prueba(){
         System.out.println("El invader esta dentro de la lista");
     }
+
+    @Override
+    public String getName(){return this.name;}
 }

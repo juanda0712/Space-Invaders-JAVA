@@ -12,7 +12,7 @@ public class Main {
 
 
         RowsFactory factory = new RowsFactory();
-        IRow row = factory.createaRow("basic");
+        IRow row = factory.createaRow("b");
         row.creaLista();
 
     }

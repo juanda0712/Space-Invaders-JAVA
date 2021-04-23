@@ -1,14 +1,13 @@
 package main.java.lists.implementations.list;
 
+import main.java.invaders.interfaces.Invader;
 import main.java.lists.interfaces.IList;
 import main.java.lists.nodes.TwoWaysNode;
 
 public class DoublyLinkedCircularList implements IList {
     @Override
     public void pruebaFuncionamiento(){
-        this.append(3);
-        this.append(2);
-        this.append(1);
+
         System.out.println(this.ShowDataInPos(2));
         this.Delete(2);
         System.out.println(this.ShowDataInPos(2));
@@ -26,7 +25,7 @@ public class DoublyLinkedCircularList implements IList {
         new TwoWaysNode(null);
     }
 
-    public void append(Object data) {
+    public void append(Invader data) {
         this.large += 1;
         if (this.head == null) {
             this.head = new TwoWaysNode(data);
@@ -51,7 +50,7 @@ public class DoublyLinkedCircularList implements IList {
         return this.large;
     }
 
-    public Object ShowDataInPos(int x) {
+    public Invader ShowDataInPos(int x) {
         var smp = this.head;
         if (x<0){
             while (this.actualpos>x){

@@ -1,17 +1,19 @@
 package main.java.lists.nodes;
 
+import main.java.invaders.interfaces.Invader;
+
 public class TwoWaysNode {
-    public Object data;
+    public Invader data;
     public TwoWaysNode next;
     public TwoWaysNode prev;
 
-    public TwoWaysNode (Object dato){
+    public TwoWaysNode (Invader dato){
         this.data=dato;
         this.next=null;
         this.prev=null;
     }
 
-    public Object getData (){
+    public Invader getData (){
         return this.data;
     }
 }

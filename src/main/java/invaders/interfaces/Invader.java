@@ -10,4 +10,5 @@ public interface Invader {
     void applyDamage();
     void prueba();
 
+    String getName();
 }
